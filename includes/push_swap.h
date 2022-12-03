@@ -18,5 +18,6 @@ typedef struct s_stack
 
 t_stack *create_stack(void);
 void	push_stack(t_stack *stack_ptr, int value);
+int	pop_stack(t_stack *stack_ptr);
 
 #endif

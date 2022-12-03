@@ -19,8 +19,18 @@ void	test_push_stack(void)
 	assert(stack_ptr->head->value == 10);
 }
 
+void	test_pop_stack(void)
+{
+	t_stack *stack_ptr = create_stack();
+	push_stack(stack_ptr, 5);
+	push_stack(stack_ptr, 10);
+	int ret = pop_stack(stack_ptr);
+	assert(ret == 10);
+}
+
 int main()
 {
 	test_create_stack();
 	test_push_stack();
+	test_pop_stack();
 }
