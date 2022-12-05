@@ -15,5 +15,5 @@ all:
 
 test:	$(STACK_TESTS)
 	$(CC) $(STACK_TESTS) $(STACK) -o stack_test
-	./stack_test
+	leaks -atExit -- ./stack_test
 	rm stack_test

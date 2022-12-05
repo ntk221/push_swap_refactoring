@@ -21,5 +21,6 @@ typedef struct s_stack
 t_stack *create_stack(void);
 bool	push_stack(t_stack *stack, int value);
 bool	pop_stack(t_stack *stack, int **data);
+void	destroy_stack(t_stack *stack);
 
 #endif

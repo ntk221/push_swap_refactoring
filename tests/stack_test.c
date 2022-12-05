@@ -39,9 +39,18 @@ void	test_pop_stack(void)
 	free(data);
 }
 
+void	test_destroy_stack(void)
+{
+	t_stack	*stack = create_stack();
+	push_stack(stack, 5);
+	destroy_stack(stack);
+	puts("stack was successfuly destoyed");
+}
+
 int main()
 {
-	test_create_stack();
-	test_push_stack();
-	test_pop_stack();
+	// test_create_stack();
+	// test_push_stack();
+	// test_pop_stack();
+	test_destroy_stack();
 }
