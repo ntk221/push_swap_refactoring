@@ -22,18 +22,19 @@ bool	pop_stack(t_stack *stack, int **data)
 	return (false);
 }
 
-void	push_stack(t_stack *stack_ptr, int value)
+bool	push_stack(t_stack *stack,int value)
 {
 	t_stack_node	*node;
 
 	node = (t_stack_node *)malloc(sizeof(t_stack_node));
 	if (node == NULL)
-		exit(1);
+		return(false);
 	node->value = value;
-	node->prev = stack_ptr->head;
-	node->next = NULL;
-	if (0 < stack_ptr->size)
-		stack_ptr->head->next = node;
-	stack_ptr->head = node;
-	stack_ptr->size += 1;
+	node->next = stack->head;
+	node->prev = NULL;
+	if (0 < stack->size) //追加した時に，すでに stack に node が詰まっていたら，その node の prev は新たに追加した head になる
+		stack->head->prev = node;
+	stack->head = node;
+	stack->size += 1;
+	return (true);
 }

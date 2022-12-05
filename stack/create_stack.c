@@ -2,12 +2,13 @@
 
 t_stack *create_stack(void)
 {
-	t_stack *stack_ptr;
+	t_stack *stack;
 
-	stack_ptr = (t_stack*)malloc(sizeof(t_stack));
-	if (stack_ptr == NULL)
+	stack = (t_stack*)malloc(sizeof(t_stack));
+	if (stack == NULL)
 		exit(1);
-	stack_ptr->head = NULL;
-	stack_ptr->size = 0;
-	return (stack_ptr);
+	stack->head = NULL;
+	stack->last = NULL;
+	stack->size = 0;
+	return (stack);
 }
