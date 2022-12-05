@@ -1,23 +1,25 @@
 #include "../includes/push_swap.h"
+#include <stdbool.h>
 
-int	pop_stack(t_stack *stack)
+// 引数に受け取る data は malloc で用意する
+bool	pop_stack(t_stack *stack, int **data)
 {
 	t_stack_node	*head;
 	t_stack_node	*new_head;
-	int		ret;
 
 	if (0 < stack->size)
 	{
 		head = stack->head;
-		new_head = head->prev;
-		ret = head->value;
+		new_head = head->next;
+		**data = head->value;
 		free(head);
-		if (head->prev != NULL)
-			new_head->prev = NULL;
+		if (head->next != NULL)
+			new_head->next = NULL;
 		stack->head = new_head;
 		stack->size -= 1;
-		return (ret);
+		return (true);
 	}
+	return (false);
 }
 
 void	push_stack(t_stack *stack_ptr, int value)
