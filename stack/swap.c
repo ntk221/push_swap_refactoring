@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 08:35:43 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/14 03:06:04 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/14 03:18:17 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_stack	*swap(t_stack *stack)
 	int		tmp;
 	t_stack_node	*head;
 
+	head = stack->head;
 	if (stack->size < 2)
 		return(NULL);
 	tmp = head->value;
@@ -25,7 +26,6 @@ t_stack	*swap(t_stack *stack)
 	return (stack);
 }
 
-#include <stdio.h>
 t_stack	*sa(t_stack *stack_a)
 {
 	t_stack *result;

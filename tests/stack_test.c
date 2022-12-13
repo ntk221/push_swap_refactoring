@@ -80,18 +80,18 @@ void	test_swap(void)
     push_front(stack_a, 5);
     push_front(stack_a, 5);
     push_front(stack_a, 10);
-    // res = sa(stack_a);
-    // assert(res->head->value == 5);
-    // assert(res->head->next->value == 10);
+    res = sa(stack_a);
+    assert(res->head->value == 5);
+    assert(res->head->next->value == 10);
     destroy_stack(stack_a);
 
 	t_stack *stack_b = create_stack();
     push_front(stack_b, 5);
     push_front(stack_b, 10);
-    // res = sb(stack_b);
-    /*assert(res->head->value == 5);
+    res = sb(stack_b);
+    assert(res->head->value == 5);
     assert(res->head->next->value == 10);
-    destroy_stack(stack_b);*/
+    destroy_stack(stack_b);
 
 }
 
