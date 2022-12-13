@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 08:49:38 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/14 06:02:24 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/14 08:15:09 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ t_stack	*rotate(t_stack *stack)
 
 	data = (int*)malloc(sizeof(int));
 	res = pop_stack(stack, &data);
-	printf("%d ", stack->head->next->value);
 	if (!res)
 		return (NULL);	
 	res = push_back(stack, *data);
-	printf("%d ", stack->head->next->value);
 	free(data);
 	if (!res)
 		return (NULL);

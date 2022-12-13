@@ -9,12 +9,10 @@ bool	pop_stack(t_stack *stack, int **data)
 
 	if (0 < stack->size)
 	{
-		head = stack->head;
+		head = stack->head;	
 		new_head = head->next;
 		**data = head->value;
 		free(head);
-		if (head->next != NULL)
-			new_head->next = head->next;
 		stack->head = new_head;
 		stack->size--;
 		return (true);
@@ -59,7 +57,7 @@ bool	push_back(t_stack *stack, int value)
 	return (true);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {
 	t_stack *stack = create_stack();
@@ -67,9 +65,11 @@ int main()
 	push_back(stack, 2);
 	push_back(stack, 3);
 	int	*data = malloc(sizeof(int));
-	pop_stack(stack, &data);
+	bool res = pop_stack(stack, &data);
 	free(data);
 	printf("%d\n", stack->head->value);
 	printf("%d\n", stack->head->next->value);
-	printf("%d\n", stack->head->next->value);
-}
+	printf("%d\n", stack->last->value);
+	printf("%d\n", stack->last->prev->value);
+
+}*/
