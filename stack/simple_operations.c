@@ -58,3 +58,18 @@ bool	push_back(t_stack *stack, int value)
 	stack->size++;
 	return (true);
 }
+
+#include <stdio.h>
+int main()
+{
+	t_stack *stack = create_stack();
+	push_back(stack, 1);
+	push_back(stack, 2);
+	push_back(stack, 3);
+	int	*data = malloc(sizeof(int));
+	pop_stack(stack, &data);
+	free(data);
+	printf("%d\n", stack->head->value);
+	printf("%d\n", stack->head->next->value);
+	printf("%d\n", stack->head->next->value);
+}
