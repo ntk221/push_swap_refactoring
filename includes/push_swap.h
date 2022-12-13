@@ -25,5 +25,6 @@ bool	pop_stack(t_stack *stack, int **data);
 void	destroy_stack(t_stack *stack);
 
 t_stack	*swap(t_stack *stack);
+t_stack	*rotate(t_stack *stack);
 
 #endif

@@ -77,12 +77,24 @@ void	test_swap(void)
 	destroy_stack(a);
 }
 
+void	test_rotate(void)
+{
+	t_stack *stack = create_stack();
+	push_front(stack, 5);
+	push_front(stack, 10);
+	push_front(stack, -10);
+	t_stack *res = rotate(stack);
+	assert(res->head->value == 10);
+	assert(res->last->value == -10);
+}
+
 int main()
 {
 	test_create_stack();
 	test_push_front();
 	test_push_back();
-	test_swap();
 	test_pop_stack();
 	test_destroy_stack();
+	test_swap();
+	test_rotate();
 }
