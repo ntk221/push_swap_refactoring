@@ -16,7 +16,7 @@ bool	pop_stack(t_stack *stack, int **data)
 		if (head->next != NULL)
 			new_head->next = head->next;
 		stack->head = new_head;
-		stack->size -= 1;
+		stack->size--;
 		return (true);
 	}
 	return (false);
@@ -37,7 +37,7 @@ bool	push_front(t_stack *stack,int value)
 	else
 		stack->last = node;
 	stack->head = node;
-	stack->size += 1;
+	stack->size++;
 	return (true);
 }
 
@@ -55,6 +55,6 @@ bool	push_back(t_stack *stack, int value)
 	else
 		stack->head = node;
 	stack->last = node;
-	stack->size += 1;
+	stack->size++;
 	return (true);
 }
