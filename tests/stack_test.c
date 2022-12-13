@@ -6,51 +6,83 @@
 
 void	test_create_stack(void)
 {
-	t_stack *stack_ptr = create_stack();
-	printf("%p \n", stack_ptr);
+	t_stack *stack = create_stack();
+	printf("%p \n", stack);
+	destroy_stack(stack);
 }
 
-void	test_push_stack(void)
+void	test_push_front(void)
 {
 	t_stack *stack = create_stack();
-	bool res = push_stack(stack, 5);
+	bool res = push_front(stack, 5);
 	if(res)
 		assert(stack->head->value == 5);
-	res = push_stack(stack, 10);
+	res = push_front(stack, 10);
 	if(res)
 	{
 		assert(stack->head->next->value == 5);
 		assert(stack->head->value == 10);
 	}
+	assert(stack->last->value == 5);
+	destroy_stack(stack);
+}
+
+void	test_push_back(void)
+{
+	t_stack *stack = create_stack();
+	bool res = push_front(stack, 5);
+	if(res)
+		assert(stack->head->value == 5);
+	res = push_back(stack, 10);
+	if(res)
+	{
+		assert(stack->head->next->value == 10);
+		assert(stack->head->value == 5);
+	}
+	destroy_stack(stack);
 }
 
 void	test_pop_stack(void)
 {
-	t_stack *stack_ptr = create_stack();
-	push_stack(stack_ptr, 5);
-	push_stack(stack_ptr, 10);
+	t_stack *stack = create_stack();
+	push_front(stack, 5);
+	push_front(stack, 10);
 	int	*data = (int *)malloc(sizeof(int));
-	bool ret = pop_stack(stack_ptr, &data);
+	bool ret = pop_stack(stack, &data);
 	if (ret)
 	{
 		assert(*data == 10);
 		printf("%d \n", *data);
 	}
 	free(data);
+	destroy_stack(stack);
 }
 
 void	test_destroy_stack(void)
 {
 	t_stack	*stack = create_stack();
-	push_stack(stack, 5);
+	push_front(stack, 5);
 	destroy_stack(stack);
 	puts("stack was successfuly destoyed");
 }
 
+void	test_swap(void)
+{
+	t_stack *a = create_stack();
+	push_front(a, 5);
+	push_front(a, 10);
+	t_stack *res = swap(a);
+	assert(res->head->value == 5);
+	assert(res->head->next->value == 10);
+	destroy_stack(a);
+}
+
 int main()
 {
-	// test_create_stack();
-	// test_push_stack();
-	// test_pop_stack();
+	test_create_stack();
+	test_push_front();
+	test_push_back();
+	test_swap();
+	test_pop_stack();
 	test_destroy_stack();
 }
