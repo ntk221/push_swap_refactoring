@@ -12,3 +12,4 @@ t_stack *create_stack(void)
 	stack->size = 0;
 	return (stack);
 }
+

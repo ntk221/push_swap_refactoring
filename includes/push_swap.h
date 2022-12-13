@@ -3,6 +3,7 @@
 #include<stddef.h>
 #include<stdlib.h>
 #include<stdbool.h>
+#include <unistd.h>
 
 typedef struct s_stack_node
 {
@@ -25,6 +26,10 @@ bool	pop_stack(t_stack *stack, int **data);
 void	destroy_stack(t_stack *stack);
 
 t_stack	*swap(t_stack *stack);
+t_stack *sa(t_stack *stack_a);
+t_stack *sb(t_stack *stack_b);
 t_stack	*rotate(t_stack *stack);
+t_stack *ra(t_stack *stack_a);
+t_stack *rb(t_stack *stack_b);
 
 #endif
