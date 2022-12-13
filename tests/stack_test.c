@@ -39,6 +39,8 @@ void	test_push_back(void)
 		assert(stack->head->next->value == 10);
 		assert(stack->head->value == 5);
 	}
+	res = push_back(stack, -1000);
+	assert(stack->head->next->next->value == -1000);
 	destroy_stack(stack);
 }
 
@@ -102,11 +104,13 @@ void	test_rotate(void)
 	push_front(stack, 10);
 	push_front(stack, -10);
 	t_stack *res = rotate(stack);
-	printf("%p \n", res->head); // NULL
-	// assert(res->head->value == 10);
-	// assert(res->last->value == -10);	
+	assert(res->head->value == 10);
+	printf("%p \n", res->head->next);
+	assert(res->last->value == -10);
+	assert(res->last->prev->value == 5);
+	assert(res->last->prev->prev->value == 10);
 	// printf("%d \n", res->head->value);
-	/*destroy_stack(stack);
+	// destroy_stack(stack);
 
 	t_stack *stack_a = create_stack();
     push_front(stack_a, 5);
@@ -115,7 +119,7 @@ void	test_rotate(void)
     res = ra(stack_a);
     assert(res->head->value == 10);
     assert(res->last->value == -10);
-	destroy_stack(stack_a);
+	// destroy_stack(stack_a);
 
 	t_stack *stack_b = create_stack();
     push_front(stack_b, 5);
@@ -124,7 +128,7 @@ void	test_rotate(void)
     res = rb(stack_b);
     assert(res->head->value == 10); 
     assert(res->last->value == -10);
-	destroy_stack(stack_b);*/
+	// destroy_stack(stack_b);
 }
 
 int main()

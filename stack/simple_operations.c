@@ -14,7 +14,7 @@ bool	pop_stack(t_stack *stack, int **data)
 		**data = head->value;
 		free(head);
 		if (head->next != NULL)
-			new_head->next = NULL;
+			new_head->next = head->next;
 		stack->head = new_head;
 		stack->size -= 1;
 		return (true);

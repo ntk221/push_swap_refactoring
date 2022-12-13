@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 08:49:38 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/14 03:08:14 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/14 03:20:29 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ t_stack	*rotate(t_stack *stack)
 	data = (int*)malloc(sizeof(int));
 	res = pop_stack(stack, &data);
 	if (!res)
-		return (NULL);
-	res = pop_stack(stack, &data);
+		return (NULL);	
 	res = push_back(stack, *data);
 	free(data);
 	if (!res)
