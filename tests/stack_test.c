@@ -197,6 +197,14 @@ void	test_push(void)
 	assert(src->size == 0);
 }
 
+void	test_print_stack(void)
+{
+	t_stack *stack = create_stack();
+	push_back(stack, 1);
+	push_back(stack, 2);
+	push_back(stack, 3);
+	print_stack(stack);
+}
 int main()
 {
 	test_create_stack();
@@ -209,4 +217,5 @@ int main()
 	test_rotate();
 	test_reverse_rotate();
 	test_push();
+	test_print_stack();
 }

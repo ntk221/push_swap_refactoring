@@ -26,6 +26,8 @@ bool	pop_front(t_stack *stack, int **data);
 bool	pop_back(t_stack *stack, int **data);
 void	destroy_stack(t_stack *stack);
 
+void	print_stack(t_stack *stack);
+
 t_stack	*swap(t_stack *stack);
 t_stack *sa(t_stack *stack_a);
 t_stack *sb(t_stack *stack_b);
@@ -37,5 +39,9 @@ t_stack *rra(t_stack *stack_a);
 t_stack *rrb(t_stack *stack_b);
 
 t_stack	*push(t_stack *src, t_stack *dst);
+t_stack *pa(t_stack *stack_a, t_stack *stack_b);
+t_stack *pb(t_stack *stack_a, t_stack *stack_b);
+
+t_stack *bubble_sort(t_stack *stack);
 
 #endif

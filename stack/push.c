@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 10:38:44 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/15 11:13:20 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/15 11:20:30 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,16 @@ t_stack *push(t_stack *src, t_stack *dst)
 	}
 	free(data);
 	return (dst);
+}
+
+t_stack	*pa(t_stack *stack_a, t_stack *stack_b)
+{
+	push(stack_b, stack_a);
+	write(1, "pa\n", 4);
+}
+
+t_stack *pb(t_stack *stack_a, t_stack *stack_b)
+{
+	push(stack_a, stack_b);
+	write(1, "pb\n", 4);
 }
