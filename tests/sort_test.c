@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:46:07 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/15 20:18:00 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/15 20:27:34 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,22 @@ void	test_bubble_sort(void)
 	push_back(stack, 7);
 	push_back(stack, 1);
 	push_back(stack, 3);
-	stack = bubble_sort(stack, stack_b);
+	stack_b = bubble_sort(stack, stack_b);
 	print_stack(stack_b);
+	destroy_stack(stack); 
+	destroy_stack(stack_b);
+
+	stack = create_stack();
+	stack_b = create_stack();
+	push_back(stack, 0);
+	push_back(stack, 1);
+	push_back(stack, -1);
+	push_back(stack, -1);
+	push_back(stack, 1);
+	stack_b = bubble_sort(stack, stack_b);
+	print_stack(stack_b);
+	destroy_stack(stack); 
+	destroy_stack(stack_b);
 }
 
 int main(void)
