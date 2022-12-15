@@ -32,5 +32,6 @@ t_stack *sb(t_stack *stack_b);
 t_stack	*rotate(t_stack *stack);
 t_stack *ra(t_stack *stack_a);
 t_stack *rb(t_stack *stack_b);
+t_stack *reverse_rotate(t_stack *stack);
 
 #endif

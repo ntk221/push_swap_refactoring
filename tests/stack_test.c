@@ -155,6 +155,22 @@ void	test_rotate(void)
 	destroy_stack(stack_b);
 }
 
+void	test_reverse_rotate(void)
+{
+	t_stack *stack = create_stack();
+	push_back(stack, 1);
+	push_back(stack, 2);
+	push_back(stack, 3);
+	stack = reverse_rotate(stack);
+	// printf("%d \n", stack->head->value);
+	assert(stack->head->value == 3);
+	assert(stack->head->next->value == 1);
+	assert(stack->last->value == 2);
+	assert(stack->last->prev->value == 1);
+	assert(stack->last->prev->prev->value == 3);
+	destroy_stack(stack);
+}
+
 int main()
 {
 	test_create_stack();
@@ -165,4 +181,5 @@ int main()
 	test_destroy_stack();
 	test_swap();
 	test_rotate();
+	test_reverse_rotate();
 }
