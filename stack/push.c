@@ -1,53 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 09:49:13 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/15 10:35:05 by kazuki           ###   ########.fr       */
+/*   Created: 2022/12/15 10:38:44 by kazuki            #+#    #+#             */
+/*   Updated: 2022/12/15 11:13:20 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-t_stack *reverse_rotate(t_stack *stack)
+t_stack *push(t_stack *src, t_stack *dst)
 {
 	int		*data;
-	bool	res;
+	bool	ret;
 
-	data = (int *)malloc(sizeof(int));
-	res = pop_back(stack, &data);
-	if (!res)
+	if (!(src->size > 0))
 		return (NULL);
-	res = push_front(stack, *data);
+	data = (int *)malloc(sizeof(int));
+	if (!data)
+		return (NULL);
+	ret = pop_front(src, &data);
+	if (!ret)
+	{
+		free(data);
+		return (NULL);
+	}
+	ret = push_front(dst, *data);
+	if (!ret)
+	{
+		free(data);
+		return (NULL);
+	}
 	free(data);
-	if (!res)
-		return(NULL);
-	else
-		return (stack);
-}
-
-t_stack *rra(t_stack *stack_a)
-{
-	t_stack	*result;
-
-	result = reverse_rotate(stack_a);
-	if (!result)
-		return (result);
-	if (write(1, "rra\n", 5))
-		return (result);
-}
-
-t_stack *rrb(t_stack *stack_b)
-{
-	t_stack *result;
-
-	result = reverse_rotate(stack_b);
-	if (!result)
-		return (result);
-	if (write(1, "rrb\n", 4))
-		return (result);
+	return (dst);
 }

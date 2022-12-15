@@ -169,6 +169,32 @@ void	test_reverse_rotate(void)
 	assert(stack->last->prev->value == 1);
 	assert(stack->last->prev->prev->value == 3);
 	destroy_stack(stack);
+
+	t_stack *stack_a = create_stack();
+	push_back(stack_a, 1);
+	push_back(stack_a, 2);
+	push_back(stack_a, 3);
+	stack = rra(stack_a);
+	// printf("%d \n", stack->head->value);
+	assert(stack_a->head->value == 3);
+	assert(stack_a->head->next->value == 1);
+	assert(stack_a->last->value == 2);
+	assert(stack_a->last->prev->value == 1);
+	assert(stack_a->last->prev->prev->value == 3);
+	destroy_stack(stack_a);
+}
+
+void	test_push(void)
+{
+	t_stack	*src = create_stack();
+	push_back(src, 1);
+	t_stack *dst = create_stack();
+	push_back(dst, 2);
+	dst = push(src, dst);
+	assert(dst->head->value == 1);
+	assert(dst->head->next->value == 2);
+	assert(dst->last->value == 2);
+	assert(src->size == 0);
 }
 
 int main()
@@ -182,4 +208,5 @@ int main()
 	test_swap();
 	test_rotate();
 	test_reverse_rotate();
+	test_push();
 }

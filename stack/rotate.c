@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 08:49:38 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/15 09:39:59 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/15 10:33:44 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,3 @@ t_stack *rb(t_stack *stack_b)
 	if (write(1, "rb\n", 4))
 		return (result);
 }
-
-/*int main()
-{
-	t_stack *stack = create_stack();
-	push_back(stack, 1);
-	push_back(stack, 2);
-	push_back(stack, 3);
-	printf("%d \n", stack->head->value);
-	rotate(stack);
-	printf("%d \n", stack->head->value);
-	printf("%d \n", stack->head->next->value);
-	printf("%d \n", stack->head->next->next->value);
-}*/
