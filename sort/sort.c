@@ -1,32 +1,31 @@
 #include "../includes/push_swap.h"
 
-t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
+t_stack	*bubble_sort(t_stack *stack)
 {
-	int		unsorted_until_index = stack_a->size - 1;
+	int		unsorted_until_index = stack->size;
 	bool	sorted = false;
 	int		i;
 
 	while (!sorted)
 	{
-		i = 0;
+		i = 1;
 		sorted = true;
-		while (i < unsorted_until_index)
+		while (i <= unsorted_until_index)
 		{
-			print_stack(stack_a);
-			print_stack(stack_b);
-			if (i == unsorted_until_index - 1)
-				stack_b = pb(stack_a, stack_b);
-			else if (stack_a->head->value > stack_a->head->next->value)
+			print_stack(stack);
+			if (i == unsorted_until_index)
+				stack = ra(stack);
+			else if (stack->head->value > stack->head->next->value)
 			{
-				stack_a = sa(stack_a);
-				stack_a = ra(stack_a);
+				stack = sa(stack);
+				stack = ra(stack);
 				sorted = false;
 			}
 			else
-				stack_a = ra(stack_a);
+				stack = ra(stack);
 			i++;
 		}
 		unsorted_until_index--;
 	}
-	return (stack_b);
+	return (stack);
 }
