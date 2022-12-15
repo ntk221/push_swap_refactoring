@@ -14,5 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: test
-      run: make sort_test
-      make stack_test
+      run:
+	make sort_test
+	make stack_test
