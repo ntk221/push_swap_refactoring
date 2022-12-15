@@ -195,6 +195,17 @@ void	test_push(void)
 	assert(dst->head->next->value == 2);
 	assert(dst->last->value == 2);
 	assert(src->size == 0);
+	destroy_stack(src);
+	destroy_stack(dst);
+
+	t_stack *stack_a = create_stack();
+	push_back(stack_a, 1);
+	push_back(stack_a, 2);
+	t_stack *stack_b = create_stack();
+	push_back(stack_b, 3);
+	push_back(stack_b, 4);
+	stack_b = pb(stack_a, stack_b);
+	printf("%p \n", stack_b->head);	
 }
 
 void	test_print_stack(void)

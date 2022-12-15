@@ -42,6 +42,6 @@ t_stack	*push(t_stack *src, t_stack *dst);
 t_stack *pa(t_stack *stack_a, t_stack *stack_b);
 t_stack *pb(t_stack *stack_a, t_stack *stack_b);
 
-t_stack *bubble_sort(t_stack *stack);
+t_stack *bubble_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif
