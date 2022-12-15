@@ -205,7 +205,7 @@ void	test_push(void)
 	push_back(stack_b, 3);
 	push_back(stack_b, 4);
 	stack_b = pb(stack_a, stack_b);
-	printf("%p \n", stack_b->head);	
+	assert(1 == stack_b->head->value);	
 }
 
 void	test_print_stack(void)
