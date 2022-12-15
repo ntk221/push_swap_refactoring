@@ -44,13 +44,13 @@ void	test_push_back(void)
 	destroy_stack(stack);
 }
 
-void	test_pop_stack(void)
+void	test_pop_front(void)
 {
 	t_stack *stack = create_stack();
 	push_front(stack, 5);
 	push_front(stack, 10);
 	int	*data = (int *)malloc(sizeof(int));
-	bool ret = pop_stack(stack, &data);
+	bool ret = pop_front(stack, &data);
 	if (ret)
 	{
 		assert(*data == 10);
@@ -61,6 +61,25 @@ void	test_pop_stack(void)
 	push_back(stack, 1000);
 	printf("%d\n", stack->head->value);
 	printf("%d\n", stack->head->next->value);
+	destroy_stack(stack);
+}
+
+void	test_pop_back(void)
+{
+	t_stack *stack = create_stack();
+	push_back(stack, 1);
+	push_back(stack, 2);
+	push_back(stack, 3);
+	int *data = (int *)malloc(sizeof(int));
+	bool ret = pop_back(stack, &data);
+	if (ret)
+	{
+		assert(*data == 3);
+	}
+	free(data);
+	assert(stack->head->value == 1);
+	assert(stack->head->next->value == 2);
+	assert(stack->last->value == 2);
 	destroy_stack(stack);
 }
 
@@ -141,7 +160,8 @@ int main()
 	test_create_stack();
 	test_push_front();
 	test_push_back();
-	test_pop_stack();
+	test_pop_front();
+	test_pop_back();
 	test_destroy_stack();
 	test_swap();
 	test_rotate();
