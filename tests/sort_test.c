@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:46:07 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/15 20:27:34 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/17 13:35:52 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	test_bubble_sort(void)
 	push_back(stack, 1);
 	stack_b = bubble_sort(stack, stack_b);
 	print_stack(stack_b);
+	print_stack(stack);
 	destroy_stack(stack); 
 	destroy_stack(stack_b);
 }
