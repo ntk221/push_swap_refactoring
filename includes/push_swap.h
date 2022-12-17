@@ -44,4 +44,9 @@ t_stack *pb(t_stack *stack_a, t_stack *stack_b);
 
 t_stack *bubble_sort(t_stack *stack_a, t_stack *stack_b);
 
+static int	is_space(const char c);
+static bool is_digits(const char c);
+int	ft_atoi(const char *str, bool *error);
+bool	check_argv(int argc, char **argv);
+
 #endif

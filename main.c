@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:53:51 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/17 13:38:43 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/17 14:08:53 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack *stack_b;
 
-	stack_a = create_stack();
-	stack_b = create_stack();
-
+	if (argc < 2)
+		exit(1);
+	if (!(check_argv(argc, argv)))
+		exit(1);
 	// TODO: stack_a の初期化
 
 	// TODO: stack_a が ソートずみか否かで分岐
@@ -28,4 +29,21 @@ int	main(int argc, char **argv)
 
 	destroy_stack(stack_a);
 	destroy_stack(stack_b);
+}
+
+static bool	check_argv(int argc, char **argv)
+{
+	int		i;
+	bool	*error;
+
+	i = 1;
+	while (i < argc)
+	{
+		*error = true;
+		ft_atoi(argv[i], error);
+		if (error)
+			return (false);
+		i++;
+	}
+	return (true);
 }

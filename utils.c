@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 09:35:12 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/14 09:38:45 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/17 14:18:51 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,31 @@ static int	is_space(const char c)
 
 static bool is_digits(const char c)
 {
-    return (c >= 0 && c <= 9);
+    return (c >= '0' && c <= '9');
 }
 
-int	ft_atoi(const char *str)
+bool	check_argv(int argc, char **argv)
 {
-	int				sign;
-	long long int	num;
-	long long int	n;
+	int		i;
+	bool	*error;
+
+	i = 1;
+	while (i < argc)
+	{
+		*error = true;
+		ft_atoi(argv[i], error);
+		if (*error)
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+int	ft_atoi(const char *str, bool *error)
+{
+	int	sign;
+	int	num;
+	int	prev;
 
 	sign = 1;
 	num = 0;
@@ -42,15 +59,16 @@ int	ft_atoi(const char *str)
 	else if (*str == '+')
 		str++;
     if (!is_digits(*str))
-        exit(1);
+		exit(1);
 	while (*str >= '0' && *str <= '9')
 	{
-		n = num;
+		prev = num;
 		num = num * 10 + sign * (*str++ - '0');
-		if (num > n && sign == -1)
+		if (num > prev && sign == -1)
 			return (0);
-		if (num < n && sign == 1)
+		if (num < prev && sign == 1)
 			return (-1);
 	}
+	*error = false;
 	return (num);
 }
