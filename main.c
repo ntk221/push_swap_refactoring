@@ -38,13 +38,13 @@ int	main(int argc, char **argv)
 static bool	check_argv(int argc, char **argv)
 {
 	int		i;
-	bool	*error;
+	bool	error;
 
 	i = 1;
 	while (i < argc)
 	{
-		*error = true;
-		ft_atoi(argv[i], error);
+		error = true;
+		ft_atoi(argv[i], &error);
 		if (error)
 			return (false);
 		i++;
