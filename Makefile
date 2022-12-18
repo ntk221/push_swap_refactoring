@@ -1,7 +1,8 @@
 CC	   = gcc
 
 STACK = ./stack/*.c
-SORT  = ./sort/*.c 
+SORT  = ./sort/*.c
+UTILS = ./utils/*.c 
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -14,11 +15,11 @@ all:
 	$(CC) $(STACK) $(NODE) push_swap.c -o push_swap 
 
 stack_test:	$(STACK_TESTS)
-	$(CC) $(STACK_TESTS) $(STACK) -o stack_test
+	$(CC) $(STACK_TESTS) $(STACK) $(UTILS) -o stack_test
 	./stack_test	
 	rm stack_test
 
 sort_test:	$(SORT_TESTS)
-	$(CC) $(SORT_TESTS) $(SORT) $(STACK) -o sort_test
+	$(CC) $(SORT_TESTS) $(SORT) $(STACK) $(UTILS) -o sort_test
 	./sort_test
 	rm sort_test

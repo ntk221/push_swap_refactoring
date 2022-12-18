@@ -216,7 +216,8 @@ void	test_print_stack(void)
 	push_back(stack, 3);
 	print_stack(stack);
 }
-int main()
+
+int main(int argc, char **argv)
 {
 	test_create_stack();
 	test_push_front();
