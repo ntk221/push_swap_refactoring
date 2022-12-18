@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   utils_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 16:51:43 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/15 17:02:58 by kazuki           ###   ########.fr       */
+/*   Created: 2022/12/18 15:43:26 by kazuki            #+#    #+#             */
+/*   Updated: 2022/12/18 16:18:10 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
+#include <assert.h>
 
-void	print_stack(t_stack *stack)
+void	test_ft_atoi(void)
 {
-	int	size;
+	bool error;
 
-	size = stack->size;
-	puts("--------------------");
-	while(size)
-	{
-		printf("%d\n", stack->head->value);
-		rotate(stack);
-		size--;
-	}
-	puts("--------------------");
+	error = true;
+	int res = ft_atoi("10", &error);
+	if (error)
+	assert(res == 1);
+}
+
+void	test_initialize_stack_a(int argc, char **argv)
+{
+	t_stack	*stack_a;
+	stack_a = initialize_stack_a(stack_a, argc, argv);
+	print_stack(stack_a);
+}
+
+int main(int argc, char **argv)
+{
+	// test_ft_atoi();
+	test_initialize_stack_a(argc, argv);
 }

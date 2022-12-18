@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   main_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 09:35:12 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/17 14:18:51 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/18 16:28:39 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	is_space(const char c)
 {
@@ -22,23 +22,6 @@ static int	is_space(const char c)
 static bool is_digits(const char c)
 {
     return (c >= '0' && c <= '9');
-}
-
-bool	check_argv(int argc, char **argv)
-{
-	int		i;
-	bool	*error;
-
-	i = 1;
-	while (i < argc)
-	{
-		*error = true;
-		ft_atoi(argv[i], error);
-		if (*error)
-			return (false);
-		i++;
-	}
-	return (true);
 }
 
 int	ft_atoi(const char *str, bool *error)
@@ -71,4 +54,21 @@ int	ft_atoi(const char *str, bool *error)
 	}
 	*error = false;
 	return (num);
+}
+
+bool	check_argv(int argc, char **argv)
+{
+	int		i;
+	bool	*error;
+
+	i = 1;
+	while (i < argc)
+	{
+		*error = true;
+		ft_atoi(argv[i], error);
+		if (*error)
+			return (false);
+		i++;
+	}
+	return (true);
 }
