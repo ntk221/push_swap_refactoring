@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 09:35:12 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/18 16:28:39 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/18 16:57:17 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ int	ft_atoi(const char *str, bool *error)
 bool	check_argv(int argc, char **argv)
 {
 	int		i;
-	bool	*error;
+	bool	error;
 
 	i = 1;
 	while (i < argc)
 	{
-		*error = true;
-		ft_atoi(argv[i], error);
-		if (*error)
+		error = true;
+		ft_atoi(argv[i], &error);
+		if (error)
 			return (false);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 15:43:26 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/18 16:18:10 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/18 16:56:09 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	test_ft_atoi(void)
 
 void	test_initialize_stack_a(int argc, char **argv)
 {
+	// check_argv(argc, argv);
 	t_stack	*stack_a;
 	stack_a = initialize_stack_a(stack_a, argc, argv);
 	print_stack(stack_a);
