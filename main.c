@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:53:51 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/18 16:58:04 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/18 17:06:49 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 		exit(1);
 	if (!(check_argv(argc, argv)))
 		exit(1);
-	t_stack *stack_a;
 	error = true;
 	stack_a = initialize_stack_a(stack_a, &error);
 
