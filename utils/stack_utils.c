@@ -50,3 +50,19 @@ t_stack	*initialize_stack_a(t_stack *stack_a, int argc, char **argv)
 	}
 	return (stack_a);
 }
+
+bool  is_sorted(t_stack *stack)
+{
+  t_stack_node *head;
+
+  if (stack->head == NULL)
+    return (true);
+  head = stack->head;
+  while (head->next != NULL)
+  {
+    if (head->value > head->next->value)
+      return (false);
+    head = head->next;
+  }
+  return (true);
+}

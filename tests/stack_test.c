@@ -217,6 +217,19 @@ void	test_print_stack(void)
 	print_stack(stack);
 }
 
+void  test_is_sorted(void)
+{
+  	t_stack *stack = create_stack();
+  	push_back(stack, 1);
+	  push_back(stack, 2);
+  	push_back(stack, 3);
+  	bool res = is_sorted(stack);
+  	assert(res == true);
+	push_back(stack, 2);
+	res = is_sorted(stack);
+	assert(res == false);
+}
+
 int main(int argc, char **argv)
 {
 	test_create_stack();
@@ -230,4 +243,5 @@ int main(int argc, char **argv)
 	test_reverse_rotate();
 	test_push();
 	test_print_stack();
+  	test_is_sorted();
 }
