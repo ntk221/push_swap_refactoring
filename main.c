@@ -16,18 +16,17 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack *stack_b;
-	bool	*error;
+	bool	error;
 
 	if (argc < 2)
 		exit(1);
 	if (!(check_argv(argc, argv)))
 		exit(1);
 	error = true;
-	stack_a = initialize_stack_a(stack_a, &error);
+	stack_a = initialize_stack_a(stack_a, argc, argv);
 
-	// TODO: stack_a が ソートずみか否かで分岐
-	// if (!is_sorted(stack_a))
-	//    stack_a = sort(stack_a, stack_b);
-
+	if (!is_sorted(stack_a))
+	    stack_a = sort(stack_a, stack_b);
+  print_stack(stack_a);
 }
 
