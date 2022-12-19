@@ -12,7 +12,10 @@ SORT_TESTS   = ./tests/sort_test.c
 NAME = push_swap
 
 all:
-	$(CC) $(STACK) $(NODE) push_swap.c -o push_swap 
+	$(CC) $(STACK) $(NODE) $(UTILS) $(SORT) push_swap.c -o push_swap 
+.PHONY:
+fclean:
+	rm push_swap
 
 stack_test:	$(STACK_TESTS)
 	$(CC) $(STACK_TESTS) $(STACK) $(UTILS) -o stack_test
