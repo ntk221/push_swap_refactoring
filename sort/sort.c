@@ -13,7 +13,7 @@ t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
 		{
 			if (i == num_of_comparison - 1)
 				stack_b = pb(stack_a, stack_b);
-			else if (stack_a->head->value > stack_a->head->next->value)
+			else if (stack_a->head->value < stack_a->head->next->value)
 			{
 				stack_a = sa(stack_a);
 				stack_a = ra(stack_a);
