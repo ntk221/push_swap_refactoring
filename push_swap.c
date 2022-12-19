@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 		exit(1);
 	error = true;
 	stack_a = initialize_stack_a(stack_a, argc, argv);
-
+  stack_b = create_stack();
 	if (!is_sorted(stack_a))
 	    stack_a = sort(stack_a, stack_b);
   print_stack(stack_a);
