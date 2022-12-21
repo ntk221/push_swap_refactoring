@@ -50,9 +50,13 @@ t_stack *sort_3(t_stack *stack_a)
   first_value = stack_a->head->value;
   second_value = stack_a->head->next->value;
   third_value = stack_a->head->next->next->value;
-  if (first_value > second_value < third_value)
+  if (first_value > second_value && second_value < third_value)
     stack_a = sa(stack_a);
-
+  else if (first_value > second_value && second_value > third_value)
+  {
+    stack_a = sa(stack_a);
+    stack_a = rra(stack_a);
+  }
   return (stack_a);
 }
 
