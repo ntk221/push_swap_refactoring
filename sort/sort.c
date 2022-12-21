@@ -66,6 +66,10 @@ t_stack *sort_3(t_stack *stack_a)
     stack_a = sa(stack_a);
     stack_a = ra(stack_a);
   }
+  else if (first_value < second_value && second_value > third_value && third_value < first_value)
+  {
+    stack_a = rra(stack_a);
+  }
   return (stack_a);
 }
 
