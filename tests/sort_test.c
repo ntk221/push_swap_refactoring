@@ -61,8 +61,34 @@ void	test_bubble_sort(void)
   destroy_stack(stack_b);
 }
 
+void  test_sort()
+{
+  t_stack *stack_a = create_stack();
+  t_stack *stack_b = create_stack();
+  push_back(stack_a, 3);
+  push_back(stack_a, 2);
+  push_back(stack_a, 1);
+  stack_a = sort(stack_a, stack_b);
+  print_stack(stack_a);
+  destroy_stack(stack_a);
+  destroy_stack(stack_b);
+}
+
+void  test_sort3()
+{
+  t_stack *stack_a = create_stack();
+
+  push_back(stack_a, 2);
+  push_back(stack_a, 1);
+  push_back(stack_a, 3);
+  stack_a = sort_3(stack_a);
+  print_stack(stack_a);
+
+}
+
 int main(void)
 {
 	test_bubble_sort();
+  test_sort();
 	return (0);
 }

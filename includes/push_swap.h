@@ -43,6 +43,7 @@ t_stack *pa(t_stack *stack_a, t_stack *stack_b);
 t_stack *pb(t_stack *stack_a, t_stack *stack_b);
 
 t_stack *bubble_sort(t_stack *stack_a, t_stack *stack_b);
+t_stack *sort_3(t_stack *stack_a);
 t_stack *sort(t_stack *stack_a, t_stack *stack_b);
 
 static int	is_space(const char c);
