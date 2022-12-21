@@ -92,6 +92,23 @@ void  test_sort_3()
   stack_a = sort_3(stack_a);
   print_stack(stack_a);
   destroy_stack(stack_a);
+
+  stack_a = create_stack();
+  push_back(stack_a, 3);
+  push_back(stack_a, 1);
+  push_back(stack_a, 2);
+  stack_a = sort_3(stack_a);
+  print_stack(stack_a);
+  destroy_stack(stack_a);
+
+  stack_a = create_stack();
+  push_back(stack_a, 1);
+  push_back(stack_a, 3);
+  push_back(stack_a, 2);
+  stack_a = sort_3(stack_a);
+  print_stack(stack_a);
+  destroy_stack(stack_a);
+
 }
 
 int main(void)
