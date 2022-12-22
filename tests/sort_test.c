@@ -12,6 +12,7 @@
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
+#include <assert.h>
 
 void	test_bubble_sort(void)
 {
@@ -72,6 +73,9 @@ void  test_sort()
   print_stack(stack_a);
   destroy_stack(stack_a);
   destroy_stack(stack_b);
+  
+  int *data;
+  pop_back(stack_a, &data);
 }
 
 void  test_sort_3()
@@ -119,10 +123,68 @@ void  test_sort_3()
 
 }
 
+/*t_stack *sort_5(t_stack *stack_a, t_stack *stack_b);
+void  test_sort_5(void)
+{
+  t_stack *stack_a = create_stack();
+  t_stack *stack_b = create_stack();
+  push_back(stack_a, 1);
+  push_back(stack_a, 6);
+  push_back(stack_a, 2);
+  push_back(stack_a, 4);
+  push_back(stack_a, 5);
+  stack_a = sort_5(stack_a, stack_b);
+  print_stack(stack_a);
+  destroy_stack(stack_a);
+}
+
+t_stack *small_partition(t_stack *stack_a, t_stack *stack_b);
+void  test_small_partition(void)
+{
+  t_stack *stack_a = create_stack();
+  t_stack *stack_b = create_stack();
+  push_back(stack_a, 1);
+  push_back(stack_a, 6);
+  push_back(stack_a, 2);
+  push_back(stack_a, 4);
+  push_back(stack_a, 5);
+  stack_a = small_partition(stack_a, stack_b);
+  print_stack(stack_a);
+  destroy_stack(stack_a);
+}
+*/
+
+/*t_stack_node *find_mid_index(t_stack *stack_a);
+void  test_find_mid(void)
+{
+  t_stack *stack_a = create_stack();
+  push_back(stack_a, 1);
+  push_back(stack_a, 6);
+  push_back(stack_a, 2);
+  push_back(stack_a, 4);
+  push_back(stack_a, 5);
+  t_stack_node *res = find_mid_index(stack_a);
+  assert(res->value == 4);
+}*/
+
+void  test_find_min_value(void)
+{
+   t_stack *stack_a = create_stack();
+  push_back(stack_a, 1);
+  push_back(stack_a, 6);
+  push_back(stack_a, 2);
+  push_back(stack_a, 4);
+  push_back(stack_a, 5);
+  int res = find_min_value(stack_a);
+  assert(1 == res);
+}
+
 int main(void)
 {
 	// test_bubble_sort();
   // test_sort();
-  test_sort_3();
+  // test_sort_3();
+  // test_sort_5();
+  test_find_min_value();
 	return (0);
 }

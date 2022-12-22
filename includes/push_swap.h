@@ -44,7 +44,10 @@ t_stack *pb(t_stack *stack_a, t_stack *stack_b);
 
 t_stack *bubble_sort(t_stack *stack_a, t_stack *stack_b);
 t_stack *sort_3(t_stack *stack_a);
+t_stack *sort_5(t_stack *stack_a, t_stack *stack_b);
 t_stack *sort(t_stack *stack_a, t_stack *stack_b);
+
+int     find_min_value(t_stack *stack_a);
 
 static int	is_space(const char c);
 static bool 	is_digits(const char c);
