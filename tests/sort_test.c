@@ -179,6 +179,18 @@ void  test_find_min_value(void)
   assert(1 == res);
 }
 
+void  test_find_max_value(void)
+{
+   t_stack *stack_a = create_stack();
+  push_back(stack_a, 1);
+  push_back(stack_a, 6);
+  push_back(stack_a, 2);
+  push_back(stack_a, 4);
+  push_back(stack_a, 5);
+  int res = find_max_value(stack_a);
+  printf("%d \n", res);
+}
+
 int main(void)
 {
 	// test_bubble_sort();
@@ -186,5 +198,6 @@ int main(void)
   // test_sort_3();
   // test_sort_5();
   test_find_min_value();
+  // test_find_max_value();
 	return (0);
 }
