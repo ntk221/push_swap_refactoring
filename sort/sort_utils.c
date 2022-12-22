@@ -24,15 +24,18 @@
 int find_min_value(t_stack *stack_a)
 {
   int           min;
+  int           size;
   t_stack_node  *itr;
 
   itr = stack_a->head;
-  min = itr->value;
-  while(itr->next != NULL)
+  min = stack_a->head->value;
+  size = stack_a->size;
+  while(size)
   {
-    if (min > itr->next->value)
-      puts("hoge");//min = itr->next->value;
-    itr++;
+    if (min > itr->value)
+      min = itr->value;
+    itr = itr->next;
+    size--;
   }
   return (min);
 }
@@ -40,15 +43,18 @@ int find_min_value(t_stack *stack_a)
 int find_max_value(t_stack *stack_a)
 {
   int           max;
+  int           size;
   t_stack_node  *itr;
 
   itr = stack_a->head;
   max = itr->value;
-  while(itr->next)
+  size = stack_a->size;
+  while(size)
   {
-    if (max < itr->next->value)
-      max = itr->next->value;
-    itr++;
+    if (max < itr->value)
+      max = itr->value; // itr->next->value は だめ ...
+    itr = itr->next;
+    size--;
   }
   return (max);
 }
