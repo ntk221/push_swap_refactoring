@@ -167,7 +167,7 @@ void  test_find_mid(void)
   assert(res->value == 4);
 }*/
 
-void  test_find_min_value(void)
+void  test_find_min_node(void)
 {
   t_stack *stack_a = create_stack();
   push_back(stack_a, 1);
@@ -176,8 +176,8 @@ void  test_find_min_value(void)
   push_back(stack_a, 4);
   push_back(stack_a, 5);
   // print_stack(stack_a);
-  int res = find_min_value(stack_a);
-  assert(1 == res);
+  t_stack_node *res = find_min_node(stack_a);
+  assert(1 == res->value);
 }
 
 void  test_find_max_value(void)
@@ -189,8 +189,8 @@ void  test_find_max_value(void)
   push_back(stack_a, 4);
   push_back(stack_a, 5);
   print_stack(stack_a);
-  int res = find_max_value(stack_a);
-  assert(res == 6);
+  t_stack_node *res = find_max_node(stack_a);
+  assert(res->value == 6);
 }
 
 int main(void)
@@ -199,7 +199,7 @@ int main(void)
   // test_sort();
   // test_sort_3();
   // test_sort_5();
-  test_find_min_value();
+  test_find_min_node();
   test_find_max_value();
 	return (0);
 }

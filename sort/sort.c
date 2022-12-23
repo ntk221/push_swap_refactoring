@@ -82,23 +82,9 @@ t_stack *sort_3(t_stack *stack_a)
   return (stack_a);
 }*/
 
-t_stack *partition(t_stack *stack_a, t_stack *stack_b)
+t_stack *small_partition(t_stack *stack_a, t_stack *stack_b)
 {
-  t_stack_node  *left;
-  t_stack_node  *right;
-  t_stack_node  *pivot;
-  int           pivot_value;
 
-  left = stack_a->head;
-  right = stack_a->last;
-  pivot = right;
-  pivot_value = pivot->value;
-  right = right->prev;
-  while (true)
-  {
-    while(left->value < pivot_value)
-      left = left->next;
-  }
 }
 
 t_stack *sort(t_stack *stack_a, t_stack *stack_b)

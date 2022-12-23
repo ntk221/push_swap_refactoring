@@ -47,8 +47,8 @@ t_stack *sort_3(t_stack *stack_a);
 t_stack *sort_5(t_stack *stack_a, t_stack *stack_b);
 t_stack *sort(t_stack *stack_a, t_stack *stack_b);
 
-int     find_min_value(t_stack *stack_a);
-int     find_max_value(t_stack *stack_a);
+t_stack_node  *find_min_node(t_stack *stack_a);
+t_stack_node  *find_max_node(t_stack *stack_a);
 
 static int	is_space(const char c);
 static bool 	is_digits(const char c);
