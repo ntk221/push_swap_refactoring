@@ -230,7 +230,7 @@ void  test_is_sorted(void)
 	assert(res == false);
 }
 
-void  test_pb_selected_node(void)
+/*void  test_pb_selected_node(void)
 {
   	t_stack *stack_a = create_stack();
     t_stack *stack_b = create_stack();
@@ -242,7 +242,7 @@ void  test_pb_selected_node(void)
     t_stack_node *node = stack_a->head->next->next; //5
     assert(node->value == 5);
     stack_b = pb_selected_node(stack_a, stack_b, node);
-}
+}*/
 
 int main(int argc, char **argv)
 {
