@@ -1,4 +1,4 @@
 #!/bin/bash
 
-gcc  ../stack/* *.c -o test
+gcc  *.c -o test
 
