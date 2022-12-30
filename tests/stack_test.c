@@ -230,6 +230,20 @@ void  test_is_sorted(void)
 	assert(res == false);
 }
 
+/*void  test_pb_selected_node(void)
+{
+  	t_stack *stack_a = create_stack();
+    t_stack *stack_b = create_stack();
+  	push_back(stack_a, 1);
+	  push_back(stack_a, 2);
+  	push_back(stack_a, 5);
+  	push_back(stack_a, 3);
+    push_back(stack_a, 6);
+    t_stack_node *node = stack_a->head->next->next; //5
+    assert(node->value == 5);
+    stack_b = pb_selected_node(stack_a, stack_b, node);
+}*/
+
 int main(int argc, char **argv)
 {
 	test_create_stack();
@@ -243,5 +257,7 @@ int main(int argc, char **argv)
 	test_reverse_rotate();
 	test_push();
 	test_print_stack();
-  	test_is_sorted();
+  test_is_sorted();
+  
+  // test_pb_selected_node();
 }

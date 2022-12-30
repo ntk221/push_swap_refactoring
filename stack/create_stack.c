@@ -9,6 +9,7 @@ t_stack *create_stack(void)
 		exit(1);
 	stack->head = NULL;
 	stack->last = NULL;
+        // stack->index = 0;
 	stack->size = 0;
 	return (stack);
 }
