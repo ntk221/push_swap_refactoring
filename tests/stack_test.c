@@ -259,5 +259,5 @@ int main(int argc, char **argv)
 	test_print_stack();
   test_is_sorted();
   
-  test_pb_selected_node();
+  // test_pb_selected_node();
 }
