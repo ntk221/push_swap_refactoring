@@ -12,6 +12,8 @@
 
 #include "./includes/push_swap.h"
 
+#include <stdio.h>
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -21,12 +23,14 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		exit(1);
 	if (!(check_argv(argc, argv)))
+	{
+		fprintf(stderr, "Error\n");
 		exit(1);
+	}
 	error = true;
 	stack_a = initialize_stack_a(stack_a, argc, argv);
-  stack_b = create_stack();
+  	stack_b = create_stack();
 	if (!is_sorted(stack_a))
 	    stack_a = sort(stack_a, stack_b);
   print_stack(stack_a);
 }
-
