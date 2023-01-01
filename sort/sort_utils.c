@@ -34,6 +34,7 @@ t_stack_node *find_min_node(t_stack *stack_a)
   {
     if (min->value > itr->value)
       min = itr;
+    // printf("%d\n", min->value);
     itr = itr->next;
     size--;
   }
