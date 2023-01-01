@@ -77,9 +77,8 @@ bool	push_back(t_stack *stack, int value)
 {
 	t_stack_node	*node;
 	node = (t_stack_node *)malloc(sizeof(t_stack_node));
-	if (node == NULL)
-		return (false);
 	node->value = value;
+  if (stack->last != NULL)
 	node->next = NULL;
 	node->prev = stack->last;
 	if (0 < stack->size)
