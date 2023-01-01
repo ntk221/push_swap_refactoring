@@ -70,5 +70,30 @@ bool	check_argv(int argc, char **argv)
 			return (false);
 		i++;
 	}
+	if (has_duplicate(argv))
+		return (false);
 	return (true);
+}
+
+
+#include <string.h>
+#include <stdio.h>
+bool	has_duplicate(char **src)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;	
+	while(src[i] != NULL)
+	{
+		j = i + 1;
+		while(src[j] != NULL)
+		{
+			if (strcmp(src[i], src[j]) == 0)
+				return (true);
+			j++;
+		}
+		i++;
+	}
+	return (false);
 }
