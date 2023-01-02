@@ -73,18 +73,20 @@ t_stack *sort_3(t_stack *stack_a)
   return (stack_a);
 }
 
-/*t_stack *sort_5(t_stack *stack_a, t_stack *stack_b)
+t_stack *sort_5(t_stack *stack_a, t_stack *stack_b)
 {
+  t_stack_node  *min = find_min_node(stack_a);
+  while(min != stack_a->head)
+    stack_a = ra(stack_a);
   stack_b = pb(stack_a, stack_b);
+  min = find_min_node(stack_a);
+  while(min != stack_a->head)
+    stack_a = ra(stack_a);
   stack_b = pb(stack_a, stack_b);
   stack_a = sort_3(stack_a);
   stack_a = pa(stack_a, stack_b);
+  stack_a = pa(stack_a, stack_b);
   return (stack_a);
-}*/
-
-t_stack *small_partition(t_stack *stack_a, t_stack *stack_b)
-{
-
 }
 
 t_stack *sort(t_stack *stack_a, t_stack *stack_b)
@@ -93,6 +95,8 @@ t_stack *sort(t_stack *stack_a, t_stack *stack_b)
     sa(stack_a);
   else if (stack_a->size == 3)
     stack_a = sort_3(stack_a);
+  else if (stack_a->size == 5)
+    stack_a = sort_5(stack_a, stack_b);
   else
 	  stack_a = bubble_sort(stack_a, stack_b);
 	return (stack_a);

@@ -37,7 +37,7 @@ t_stack *rra(t_stack *stack_a)
 	result = reverse_rotate(stack_a);
 	if (!result)
 		return (result);
-	if (write(1, "rra\n", 5))
+	if (write(1, "rra\n", 4))
 		return (result);
 }
 
