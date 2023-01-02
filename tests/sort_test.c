@@ -146,14 +146,21 @@ void  test_sort_3()
 void  test_find_min_node(void)
 {
   t_stack *stack_a = create_stack();
-  push_back(stack_a, 1);
   push_back(stack_a, 6);
+  push_back(stack_a, 3);
   push_back(stack_a, 2);
   push_back(stack_a, 4);
-  push_back(stack_a, 5);
+  push_back(stack_a, 1);
   // print_stack(stack_a);
   t_stack_node *res = find_min_node(stack_a);
-  assert(1 == res->value);
+  // printf("%d\n", res->value);
+  // t_stack_node  *itr = res;
+  while(res != stack_a->head)
+  {
+    ra(stack_a);
+  }
+  assert(stack_a->head->value == 1);
+  // assert(1 == res);
 }
 
 /*void  test_find_max_value(void)
