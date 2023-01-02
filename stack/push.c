@@ -42,13 +42,13 @@ t_stack *push(t_stack *src, t_stack *dst)
 t_stack	*pa(t_stack *stack_a, t_stack *stack_b)
 {
 	stack_a = push(stack_b, stack_a);
-	write(1, "pa\n", 4);
+	write(1, "pa\n", 3);
 	return (stack_a);
 }
 
 t_stack *pb(t_stack *stack_a, t_stack *stack_b)
 {
 	stack_b = push(stack_a, stack_b);
-	write(1, "pb\n", 4);
+	write(1, "pb\n", 3);
 	return (stack_b);
 }

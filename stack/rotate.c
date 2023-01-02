@@ -37,7 +37,7 @@ t_stack *ra(t_stack *stack_a)
 	result = rotate(stack_a);
 	if (!result)
 		return (result);
-	if (write(1, "ra\n", 4))
+	if (write(1, "ra\n", 3))
 		return (result);
 }
 
@@ -48,6 +48,6 @@ t_stack *rb(t_stack *stack_b)
 	result = rotate(stack_b);
 	if (!result)
 		return (result);
-	if (write(1, "rb\n", 4))
+	if (write(1, "rb\n", 3))
 		return (result);
 }

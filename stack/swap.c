@@ -33,7 +33,7 @@ t_stack	*sa(t_stack *stack_a)
 	result = swap(stack_a);
 	if (!result)
 		return (result);
-	if (write(1, "sa\n", 4))
+	if (write(1, "sa\n", 3))
 		return (result);
 	else
 		return (NULL);
@@ -46,7 +46,7 @@ t_stack *sb(t_stack *stack_b)
         result = swap(stack_b);
         if (!result)
                 return (result);
-        if (write(1, "sb\n", 4))
+        if (write(1, "sb\n", 3))
                 return (result);
         else
                 return (NULL);

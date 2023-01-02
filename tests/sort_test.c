@@ -14,6 +14,26 @@
 #include <stdio.h>
 #include <assert.h>
 
+t_stack *array_to_stack(char *arr, char delim)
+{
+    int     val;
+    t_stack *stack = create_stack();
+    while(*arr != '\0')
+    {
+        if(*arr == delim)
+        {
+            arr++;
+            continue;
+        }
+        val = *arr - '0';
+        bool res = push_back(stack, val);
+        if (!res)
+            return NULL;
+        arr++;
+    }
+    return stack;
+}
+
 void	test_bubble_sort(void)
 {
 	t_stack *stack_a = create_stack();
@@ -123,50 +143,6 @@ void  test_sort_3()
 
 }
 
-/*t_stack *sort_5(t_stack *stack_a, t_stack *stack_b);
-void  test_sort_5(void)
-{
-  t_stack *stack_a = create_stack();
-  t_stack *stack_b = create_stack();
-  push_back(stack_a, 1);
-  push_back(stack_a, 6);
-  push_back(stack_a, 2);
-  push_back(stack_a, 4);
-  push_back(stack_a, 5);
-  stack_a = sort_5(stack_a, stack_b);
-  print_stack(stack_a);
-  destroy_stack(stack_a);
-}
-
-t_stack *small_partition(t_stack *stack_a, t_stack *stack_b);
-void  test_small_partition(void)
-{
-  t_stack *stack_a = create_stack();
-  t_stack *stack_b = create_stack();
-  push_back(stack_a, 1);
-  push_back(stack_a, 6);
-  push_back(stack_a, 2);
-  push_back(stack_a, 4);
-  push_back(stack_a, 5);
-  stack_a = small_partition(stack_a, stack_b);
-  print_stack(stack_a);
-  destroy_stack(stack_a);
-}
-*/
-
-/*t_stack_node *find_mid_index(t_stack *stack_a);
-void  test_find_mid(void)
-{
-  t_stack *stack_a = create_stack();
-  push_back(stack_a, 1);
-  push_back(stack_a, 6);
-  push_back(stack_a, 2);
-  push_back(stack_a, 4);
-  push_back(stack_a, 5);
-  t_stack_node *res = find_mid_index(stack_a);
-  assert(res->value == 4);
-}*/
-
 void  test_find_min_node(void)
 {
   t_stack *stack_a = create_stack();
@@ -180,7 +156,7 @@ void  test_find_min_node(void)
   assert(1 == res->value);
 }
 
-void  test_find_max_value(void)
+/*void  test_find_max_value(void)
 {
    t_stack *stack_a = create_stack();
   push_back(stack_a, 1);
@@ -191,6 +167,15 @@ void  test_find_max_value(void)
   print_stack(stack_a);
   t_stack_node *res = find_max_node(stack_a);
   assert(res->value == 6);
+}*/
+
+void  test_sort_5(void)
+{
+  char    *str      = "5 4 3 2 1";
+  t_stack *stack_a  = array_to_stack(str, ' ');
+  t_stack *stack_b  = create_stack();
+  stack_a = sort_5(stack_a, stack_b);
+  print_stack(stack_a);
 }
 
 int main(void)
@@ -198,8 +183,8 @@ int main(void)
 	// test_bubble_sort();
   // test_sort();
   // test_sort_3();
-  // test_sort_5();
-  test_find_min_node();
-  test_find_max_value();
+  test_sort_5();
+  // test_find_min_node();
+  // test_find_max_value();
 	return (0);
 }
