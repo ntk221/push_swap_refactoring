@@ -6,13 +6,16 @@ UTILS = ./utils/*.c
 
 CFLAGS = -Wall -Werror -Wextra
 
+# OBJ = $(%c=%o)
+
 STACK_TESTS  = ./tests/stack_test.c
 SORT_TESTS   = ./tests/sort_test.c
 
 NAME = push_swap
 
-all:
+$(NAME):
 	$(CC) $(STACK) $(NODE) $(UTILS) $(SORT) push_swap.c -o push_swap 
+
 .PHONY:
 fclean:
 	rm push_swap

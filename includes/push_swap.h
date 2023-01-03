@@ -53,10 +53,11 @@ t_stack *pb(t_stack *stack_a, t_stack *stack_b);
 
 t_stack *bubble_sort(t_stack *stack_a, t_stack *stack_b);
 t_stack *sort_3(t_stack *stack_a);
+t_stack *sort_4(t_stack *stack_a, t_stack *stack_b);
 t_stack *sort_5(t_stack *stack_a, t_stack *stack_b);
 t_stack *sort(t_stack *stack_a, t_stack *stack_b);
 
-t_stack_node  *find_min_node(t_stack *stack_a);
+t_stack_node  *find_min_node(t_stack *stack_a, int *index);
 t_stack_node  *find_max_node(t_stack *stack_a);
 
 
