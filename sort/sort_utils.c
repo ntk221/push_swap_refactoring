@@ -1,42 +1,29 @@
 #include "../includes/push_swap.h"
 
-/*t_stack_node  *find_mid_index(t_stack *stack_a)
-{
-  t_stack_node  *target;
-  t_stack_node  *last;
-  int           min;
-  int           max;
-
-  target = stack_a->head;
-  last = stack_a->last;
-  while(target->next == NULL)
-  {
-    if ()
-    {
-      
-    }
-    target++;
-  }
-}*/
-
 #include <stdio.h>
 
-t_stack_node *find_min_node(t_stack *stack_a)
+t_stack_node *find_min_node(t_stack *stack_a, int *index)
 {
   t_stack_node  *min;
   int           size;
   t_stack_node  *itr;
+  size_t        id;
 
   itr = stack_a->head;
   min = itr;
   size = stack_a->size;
+  id = 0;
   while(size)
   {
     if (min->value > itr->value)
+    {
       min = itr;
+      *index = id;
+    }
     // printf("%d\n", min->value);
     itr = itr->next;
     size--;
+    id++;
   }
   return (min);
 }

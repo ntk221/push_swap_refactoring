@@ -152,29 +152,18 @@ void  test_find_min_node(void)
   push_back(stack_a, 4);
   push_back(stack_a, 1);
   // print_stack(stack_a);
-  t_stack_node *res = find_min_node(stack_a);
+  int  index = 0;
+  t_stack_node *res = find_min_node(stack_a, &index);
   // printf("%d\n", res->value);
   // t_stack_node  *itr = res;
+  assert(index == 4);
   while(res != stack_a->head)
   {
-    ra(stack_a);
+    rra(stack_a);
   }
   assert(stack_a->head->value == 1);
   // assert(1 == res);
 }
-
-/*void  test_find_max_value(void)
-{
-   t_stack *stack_a = create_stack();
-  push_back(stack_a, 1);
-  push_back(stack_a, 6);
-  push_back(stack_a, 2);
-  push_back(stack_a, 4);
-  push_back(stack_a, 5);
-  print_stack(stack_a);
-  t_stack_node *res = find_max_node(stack_a);
-  assert(res->value == 6);
-}*/
 
 void  test_sort_5(void)
 {
@@ -187,11 +176,11 @@ void  test_sort_5(void)
 
 int main(void)
 {
-	test_bubble_sort();
-  test_sort();
-  test_sort_3();
-  test_sort_5();
-  // test_find_min_node();
+	// test_bubble_sort();
+  // test_sort();
+  // test_sort_5();
+  // test_sort_3();
+  test_find_min_node();
   // test_find_max_value();
 	return (0);
 }

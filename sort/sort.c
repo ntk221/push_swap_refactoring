@@ -75,16 +75,46 @@ t_stack *sort_3(t_stack *stack_a)
 
 t_stack *sort_5(t_stack *stack_a, t_stack *stack_b)
 {
-  t_stack_node  *min = find_min_node(stack_a);
+  int           id;
+  t_stack_node  *min;
+  bool          flag;
+
+  flag = false;
+  if (stack_a->size == 5)
+  {
+    id = 0;
+    min = find_min_node(stack_a, &id);
+    while(min != stack_a->head)
+    {
+      if (id < stack_a->size / 2)
+        stack_a = ra(stack_a);
+      else
+        stack_a = rra(stack_a);
+    }
+    stack_b = pb(stack_a, stack_b);
+    flag = true;
+  }
+  stack_a = sort_4(stack_a, stack_b);
+  if (flag)
+    stack_a = pa(stack_a, stack_b);
+  return (stack_a);
+}
+
+t_stack *sort_4(t_stack *stack_a, t_stack *stack_b)
+{
+  int           id;
+  t_stack_node  *min;
+  id = 0;
+  min = find_min_node(stack_a, &id);
   while(min != stack_a->head)
-    stack_a = ra(stack_a);
-  stack_b = pb(stack_a, stack_b);
-  min = find_min_node(stack_a);
-  while(min != stack_a->head)
-    stack_a = ra(stack_a);
+  {
+    if (id < stack_a->size / 2)
+      stack_a = ra(stack_a);
+    else
+      stack_a = rra(stack_a);
+  }
   stack_b = pb(stack_a, stack_b);
   stack_a = sort_3(stack_a);
-  stack_a = pa(stack_a, stack_b);
   stack_a = pa(stack_a, stack_b);
   return (stack_a);
 }
@@ -95,7 +125,7 @@ t_stack *sort(t_stack *stack_a, t_stack *stack_b)
     sa(stack_a);
   else if (stack_a->size == 3)
     stack_a = sort_3(stack_a);
-  else if (stack_a->size == 5)
+  else if (stack_a->size == 5 || stack_a->size == 4)
     stack_a = sort_5(stack_a, stack_b);
   else
 	  stack_a = bubble_sort(stack_a, stack_b);
