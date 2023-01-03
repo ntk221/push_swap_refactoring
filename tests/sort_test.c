@@ -187,9 +187,9 @@ void  test_sort_5(void)
 
 int main(void)
 {
-	// test_bubble_sort();
-  // test_sort();
-  // test_sort_3();
+	test_bubble_sort();
+  test_sort();
+  test_sort_3();
   test_sort_5();
   // test_find_min_node();
   // test_find_max_value();

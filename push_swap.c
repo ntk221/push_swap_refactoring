@@ -33,4 +33,6 @@ int	main(int argc, char **argv)
 	if (!is_sorted(stack_a))
 	    stack_a = sort(stack_a, stack_b);
   	// print_stack(stack_a);
+	destroy_stack(stack_a);
+	destroy_stack(stack_b);
 }
