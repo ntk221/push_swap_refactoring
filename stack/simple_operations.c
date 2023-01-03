@@ -9,7 +9,7 @@ bool	pop_front(t_stack *stack, int **data)
 
 	if (1 == stack->size)
 	{
-		**data = stack->head->value;
+		**data = stack->head->val;
 		free(stack->head);
 		stack->head = NULL;
 		stack->size--;
@@ -19,7 +19,7 @@ bool	pop_front(t_stack *stack, int **data)
 	{
 		head = stack->head;	
 		new_head = head->next;
-		**data = head->value;
+		**data = head->val;
 		free(head);
 		stack->head = new_head;
 		stack->size--;
@@ -35,7 +35,7 @@ bool	pop_back(t_stack *stack, int **data)
 
 	if (1 == stack->size)
 	{
-		**data = stack->last->value;
+		**data = stack->last->val;
 		free(stack->last);
 		stack->last = NULL;
 		stack->size--;
@@ -45,7 +45,7 @@ bool	pop_back(t_stack *stack, int **data)
 	{
 		last = stack->last;
 		new_last = last->prev;
-		**data = last->value;
+		**data = last->val;
 		free(last);
 		stack->last = new_last;
 		stack->size--;
@@ -54,14 +54,14 @@ bool	pop_back(t_stack *stack, int **data)
 	return (false);
 }
 
-bool	push_front(t_stack *stack,int value)
+bool	push_front(t_stack *stack,int val)
 {
 	t_stack_node	*node;
 
 	node = (t_stack_node *)malloc(sizeof(t_stack_node));
 	if (node == NULL)
 		return(false);
-	node->value = value;
+	node->val = val;
 	node->next = stack->head;
 	node->prev = NULL;
 	if (0 < stack->size) //追加した時に，すでに stack に node が詰まっていたら，その node の prev は新たに追加した head になる
@@ -73,11 +73,11 @@ bool	push_front(t_stack *stack,int value)
 	return (true);
 }
 
-bool	push_back(t_stack *stack, int value)
+bool	push_back(t_stack *stack, int val)
 {
 	t_stack_node	*node;
 	node = (t_stack_node *)malloc(sizeof(t_stack_node));
-	node->value = value;
+	node->val = val;
   if (stack->last != NULL)
 	node->next = NULL;
 	node->prev = stack->last;
@@ -100,9 +100,9 @@ int main()
 	int	*data = malloc(sizeof(int));
 	bool res = pop_stack(stack, &data);
 	free(data);
-	printf("%d\n", stack->head->value);
-	printf("%d\n", stack->head->next->value);
-	printf("%d\n", stack->last->value);
-	printf("%d\n", stack->last->prev->value);
+	printf("%d\n", stack->head->val);
+	printf("%d\n", stack->head->next->val);
+	printf("%d\n", stack->last->val);
+	printf("%d\n", stack->last->prev->val);
 
 }*/

@@ -39,7 +39,7 @@ bool			pop_front(t_stack *stack, int **data);
 bool			pop_back(t_stack *stack, int **data);
 void			destroy_stack(t_stack *stack);
 
-// void			print_stack(t_stack *stack);
+void			print_stack(t_stack *stack);
 
 /* normal operations */
 

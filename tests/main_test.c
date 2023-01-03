@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <string.h>
 #include <stdio.h>
 
 int main(int argc, char **argv)

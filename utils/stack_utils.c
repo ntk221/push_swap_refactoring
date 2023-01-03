@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:51:43 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/18 16:29:07 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/04 03:25:48 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	print_stack(t_stack *stack)
 	puts("--------------------");
 	while(size)
 	{
-		printf("%d\n", stack->head->value);
+		printf("%d\n", stack->head->val);
 		rotate(stack);
 		size--;
 	}
@@ -37,7 +37,7 @@ t_stack	*initialize_stack_a(t_stack *stack_a, int argc, char **argv)
 
 	i = 1;
 	stack_a = create_stack();
-	while(i < argc)
+	while (i < argc)
 	{
 		error = true;
 		num = ft_atoi(argv[i], &error);
@@ -51,18 +51,18 @@ t_stack	*initialize_stack_a(t_stack *stack_a, int argc, char **argv)
 	return (stack_a);
 }
 
-bool  is_sorted(t_stack *stack)
+bool	is_sorted(t_stack *stack)
 {
-  t_stack_node *head;
+	t_stack_node	*head;
 
-  if (stack->head == NULL)
-    return (true);
-  head = stack->head;
-  while (head->next != NULL)
-  {
-    if (head->value > head->next->value)
-      return (false);
-    head = head->next;
-  }
-  return (true);
+	if (stack->head == NULL)
+		return (true);
+	head = stack->head;
+	while (head->next != NULL)
+	{
+		if (head->val > head->next->val)
+			return (false);
+		head = head->next;
+	}
+	return (true);
 }

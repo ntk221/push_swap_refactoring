@@ -30,11 +30,11 @@ void    test_array_to_stack(void)
 {
     char        *src1  = "1 2 3 4 5";
     t_stack     *stack = array_to_stack(src1, ' '); 
-    // printf("%d\n", stack->head->value);
-    assert(stack->head->value == 1);
-    assert(stack->head->next->value == 2);
-    assert(stack->head->next->next->value == 3);
-    assert(stack->head->next->next->next->next->value == 5);
+    // printf("%d\n", stack->head->val);
+    assert(stack->head->val == 1);
+    assert(stack->head->next->val == 2);
+    assert(stack->head->next->next->val == 3);
+    assert(stack->head->next->next->next->next->val == 5);
 }
 
 int main(void)

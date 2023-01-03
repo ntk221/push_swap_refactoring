@@ -154,14 +154,14 @@ void  test_find_min_node(void)
   // print_stack(stack_a);
   int  index = 0;
   t_stack_node *res = find_min_node(stack_a, &index);
-  // printf("%d\n", res->value);
+  // printf("%d\n", res->val);
   // t_stack_node  *itr = res;
   assert(index == 4);
   while(res != stack_a->head)
   {
     rra(stack_a);
   }
-  assert(stack_a->head->value == 1);
+  assert(stack_a->head->val == 1);
   // assert(1 == res);
 }
 
@@ -181,6 +181,6 @@ int main(void)
   // test_sort_5();
   // test_sort_3();
   test_find_min_node();
-  // test_find_max_value();
+  // test_find_max_val();
 	return (0);
 }

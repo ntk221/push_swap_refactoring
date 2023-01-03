@@ -20,9 +20,9 @@ t_stack	*swap(t_stack *stack)
 	head = stack->head;
 	if (stack->size < 2)
 		return(NULL);
-	tmp = head->value;
-	head->value = head->next->value;
-	head->next->value = tmp;
+	tmp = head->val;
+	head->val = head->next->val;
+	head->next->val = tmp;
 	return (stack);
 }
 

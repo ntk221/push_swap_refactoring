@@ -1,4 +1,15 @@
-/*
-    目的: Error\n という文字列を， 標準エラーに出力して， exit を読んで，以上終了する関数を作る
-    注意： exit を呼ぶ前に，その時点までに動的に確保したメモリ領域を解放すべきであるという意見がある。valgrind などでは still reachable と表示されるが ... 
-*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_utils_2.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/04 03:48:24 by kazuki            #+#    #+#             */
+/*   Updated: 2023/01/04 03:50:58 by kazuki           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+// Usage : This function outputs string "Error\n" to stderr
+//         and call exit() to finish the program.
+// Note： exit() should be called after freed all allocated memory ...?

@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 09:35:12 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/18 16:57:17 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/04 03:05:48 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ static int	is_space(const char c)
 	if ((c >= 9 && c <= 13) || c == 32)
 		return (1);
 	return (0);
-}
-
-static bool is_digits(const char c)
-{
-    return (c >= '0' && c <= '9');
 }
 
 int	ft_atoi(const char *str, bool *error)
@@ -41,7 +36,7 @@ int	ft_atoi(const char *str, bool *error)
 	}
 	else if (*str == '+')
 		str++;
-    if (!is_digits(*str))
+	if (!((*str >= '0' && *str <= '9')))
 		exit(1);
 	while (*str >= '0' && *str <= '9')
 	{
@@ -75,19 +70,16 @@ bool	check_argv(int argc, char **argv)
 	return (true);
 }
 
-
-#include <string.h>
-#include <stdio.h>
 bool	has_duplicate(char **src)
 {
 	size_t	i;
 	size_t	j;
 
-	i = 0;	
-	while(src[i] != NULL)
+	i = 0;
+	while (src[i] != NULL)
 	{
 		j = i + 1;
-		while(src[j] != NULL)
+		while (src[j] != NULL)
 		{
 			if (strcmp(src[i], src[j]) == 0)
 				return (true);
