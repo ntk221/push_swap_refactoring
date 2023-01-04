@@ -21,7 +21,7 @@ $(NAME): lib
 	$(CC) $(STACK) $(NODE) $(UTILS) $(SORT) -I/$(INCLUDE) $(LIBFT_DIR)libft.a push_swap.c -o push_swap 
 
 lib:
-	make -C $(LIBFT_DIR) || :
+	make -C $(LIBFT_DIR)
 
 .PHONY:
 fclean:
