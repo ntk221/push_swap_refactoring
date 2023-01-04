@@ -19,7 +19,7 @@ static int	is_space(const char c)
 	return (0);
 }
 
-int	ft_atoi(const char *str, bool *error)
+int	ps_atoi(const char *str, bool *error)
 {
 	int	sign;
 	int	num;
@@ -60,7 +60,7 @@ bool	check_argv(int argc, char **argv)
 	while (i < argc)
 	{
 		error = true;
-		ft_atoi(argv[i], &error);
+		ps_atoi(argv[i], &error);
 		if (error)
 			return (false);
 		i++;
@@ -81,7 +81,7 @@ bool	has_duplicate(char **src)
 		j = i + 1;
 		while (src[j] != NULL)
 		{
-			if (strcmp(src[i], src[j]) == 0)
+			if (ft_strncmp(src[i], src[j], ft_strlen(src[i])) == 0)
 				return (true);
 			j++;
 		}
