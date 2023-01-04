@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <unistd.h>
+# include "libft.h"
 
 typedef struct s_stack_node
 {
@@ -72,7 +73,7 @@ t_stack_node	*find_max_node(t_stack *stack_a);
 /* util functions */
 static int		is_space(const char c);
 static bool		is_digits(const char c);
-int				ft_atoi(const char *str, bool *error);
+int				ps_atoi(const char *str, bool *error);
 bool			check_argv(int argc, char **argv);
 t_stack			*initialize_stack_a(t_stack *stack_a, int argc, char **argv);
 bool			is_sorted(t_stack *stack);

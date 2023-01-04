@@ -40,7 +40,7 @@ t_stack	*initialize_stack_a(t_stack *stack_a, int argc, char **argv)
 	while (i < argc)
 	{
 		error = true;
-		num = ft_atoi(argv[i], &error);
+		num = ps_atoi(argv[i], &error);
 		if (error)
 			exit(1);
 		res = push_back(stack_a, num);
