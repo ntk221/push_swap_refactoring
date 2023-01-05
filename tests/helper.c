@@ -24,6 +24,29 @@ t_stack *array_to_stack(char *arr, char delim)
     return stack;
 }
 
+void printb(unsigned int v) {
+  unsigned int mask = (int)1 << (sizeof(v) * CHAR_BIT - 1);
+  do putchar(mask & v ? '1' : '0');
+  while (mask >>= 1);
+}
+
+void	print_stack(t_stack *stack)
+{
+	int	size;
+
+	size = stack->size;
+	puts("--------------------");
+	while(size)
+	{
+		printb(stack->head->val);
+		//printf("%d", stack->head->val);
+		puts("");
+		rotate(stack);
+		size--;
+	}
+	puts("--------------------");
+}
+
 #include <stdio.h>
 
 void    test_array_to_stack(void)

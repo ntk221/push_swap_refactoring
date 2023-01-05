@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   simple_operations.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/06 05:03:33 by kazuki            #+#    #+#             */
+/*   Updated: 2023/01/06 05:05:48 by kazuki           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 #include <stdbool.h>
 
-// 引数に受け取る data は malloc で用意する
 bool	pop_front(t_stack *stack, int **data)
 {
 	t_stack_node	*head;
@@ -17,7 +28,7 @@ bool	pop_front(t_stack *stack, int **data)
 	}
 	else if (0 < stack->size)
 	{
-		head = stack->head;	
+		head = stack->head;
 		new_head = head->next;
 		**data = head->val;
 		free(head);
@@ -54,17 +65,17 @@ bool	pop_back(t_stack *stack, int **data)
 	return (false);
 }
 
-bool	push_front(t_stack *stack,int val)
+bool	push_front(t_stack *stack, int val)
 {
 	t_stack_node	*node;
 
 	node = (t_stack_node *)malloc(sizeof(t_stack_node));
 	if (node == NULL)
-		return(false);
+		return (false);
 	node->val = val;
 	node->next = stack->head;
 	node->prev = NULL;
-	if (0 < stack->size) //追加した時に，すでに stack に node が詰まっていたら，その node の prev は新たに追加した head になる
+	if (0 < stack->size)
 		stack->head->prev = node;
 	else
 		stack->last = node;
@@ -76,10 +87,11 @@ bool	push_front(t_stack *stack,int val)
 bool	push_back(t_stack *stack, int val)
 {
 	t_stack_node	*node;
+
 	node = (t_stack_node *)malloc(sizeof(t_stack_node));
 	node->val = val;
-  if (stack->last != NULL)
 	node->next = NULL;
+	if (stack->last != NULL)
 	node->prev = stack->last;
 	if (0 < stack->size)
 		stack->last->next = node;

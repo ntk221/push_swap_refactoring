@@ -6,14 +6,13 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 09:49:13 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/15 10:35:05 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/06 05:02:20 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
 
-t_stack *reverse_rotate(t_stack *stack)
+t_stack	*reverse_rotate(t_stack *stack)
 {
 	int		*data;
 	bool	res;
@@ -25,12 +24,12 @@ t_stack *reverse_rotate(t_stack *stack)
 	res = push_front(stack, *data);
 	free(data);
 	if (!res)
-		return(NULL);
+		return (NULL);
 	else
 		return (stack);
 }
 
-t_stack *rra(t_stack *stack_a)
+t_stack	*rra(t_stack *stack_a)
 {
 	t_stack	*result;
 
@@ -41,9 +40,9 @@ t_stack *rra(t_stack *stack_a)
 		return (result);
 }
 
-t_stack *rrb(t_stack *stack_b)
+t_stack	*rrb(t_stack *stack_b)
 {
-	t_stack *result;
+	t_stack	*result;
 
 	result = reverse_rotate(stack_b);
 	if (!result)
