@@ -44,28 +44,29 @@ t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
 
 t_stack	*radix_sort(t_stack *a, t_stack *b)
 {
-	int		max_bits;
+	size_t	max_bits;
 	size_t	size;
 	size_t	i;
 	size_t	j;
 
 	max_bits = 0;
-	i = 0;
-	while (((a->size - 1) >> max_bits) != 0)
+	while ((a->size - 1) >> max_bits != 0)
 		max_bits++;
 	size = a->size;
-	while (i++ < max_bits)
+	i = 0;
+	while (i < max_bits)
 	{
 		j = 0;
 		while (j++ < size)
 		{
-			if ((a->head->val >> i) & 1 == 1)
+			if ((a->head->val >> i) & 1 == true)
 				a = ra(a);
 			else
 				b = pb(a, b);
 		}
 		while (b->size != 0)
 			a = pa(a, b);
+		i++;
 	}
 	return (a);
 }

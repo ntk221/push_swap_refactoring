@@ -12,22 +12,29 @@
 
 #include "../includes/push_swap.h"
 
-// Usage : This function outputs string "Error\n" to stderr
-//         and call exit() to finish the program.
-// Note： exit() should be called after freed all allocated memory ...?
-
-
 // Usage : This function converts char ** type data to int * type data
 //          officially this function is used for convert argv to one array.
 int		*argv_to_array(int argc, char **argv)
 {
 	int		*data;
 	int		size;
+	bool	error;
 	
 	size = argc;
 	data = (int *)ft_calloc(size, sizeof(int));
+	if (!data)
+		error_message();
 	for(int i = 1; i < size; i++)
-		data[i - 1] = ft_atoi(argv[i]);
+	{
+		error = true;
+		data[i - 1] = ps_atoi(argv[i], &error);
+		if (error)
+		{
+			free(data);
+			write(2, "Error\n", 6);
+			exit(1);
+		}
+	}
 	return (data);
 }
 
@@ -85,7 +92,7 @@ int	linear_search(int *ordered_array, int search_value)
 
 // Usage : This function takes array of int and converts it to compressed one.
 // Note : now, I assume data was created by malloc
-int		*compression(int	*data, int argc)
+int		*compression(int *data, int argc)
 {
 	int	*copy;
 	int	*res;
@@ -93,10 +100,21 @@ int		*compression(int	*data, int argc)
 
 	size = argc - 1;
 	copy = (int *)ft_calloc(size, sizeof(int));
+	if (!copy)
+	{
+		free(data);
+		error_message();	
+	}
 	for(int i = 0; i < size; i++)
 		copy[i] = data[i];
 	copy = bubble_sort_arr(copy, size);
 	res = (int *)ft_calloc(size, sizeof(int));
+	if (!res)
+	{
+		free(data);
+		free(copy);
+		error_message();
+	}
 	for (int i = 0; i < size; i++)
 		res[i] = linear_search(copy, data[i]);
 	free(copy);

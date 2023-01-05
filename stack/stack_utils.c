@@ -23,7 +23,10 @@ t_stack	*initialize_stack_a(t_stack *stack_a, int	*data, int argc)
 	{
 		res = push_back(stack_a, data[i]);
 		if (!res)
-			exit(1);
+		{
+			free(stack_a);
+			error_message();
+		}
 		i++;
 	}
 	return (stack_a);

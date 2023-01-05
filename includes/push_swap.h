@@ -76,6 +76,7 @@ static int		is_space(const char c);
 static bool		is_digits(const char c);
 int				ps_atoi(const char *str, bool *error);
 bool			check_argv(int argc, char **argv);
+void			error_message(void);
 t_stack			*initialize_stack_a(t_stack *stack_a, int *data, int argc);
 bool			is_sorted(t_stack *stack);
 bool			has_duplicate(char **src);

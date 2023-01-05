@@ -37,7 +37,7 @@ int	ps_atoi(const char *str, bool *error)
 	else if (*str == '+')
 		str++;
 	if (!((*str >= '0' && *str <= '9')))
-		exit(1);
+		error_message();
 	while (*str >= '0' && *str <= '9')
 	{
 		prev = num;
@@ -62,7 +62,7 @@ bool	check_argv(int argc, char **argv)
 		error = true;
 		ps_atoi(argv[i], &error);
 		if (error)
-			return (false);
+			error_message();
 		i++;
 	}
 	if (has_duplicate(argv))

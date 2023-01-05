@@ -18,15 +18,11 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		*data;
-	bool	error;
 
 	if (argc < 2)
-		exit(1);
+		error_message();
 	if (!(check_argv(argc, argv)))
-	{
-		fprintf(stderr, "Error\n");
-		exit(1);
-	}
+		error_message();
 	data = argv_to_array(argc, argv);
 	data = compression(data, argc);
 	// for (int i = 0; i < argc - 1; i++)

@@ -19,7 +19,7 @@ LIBFT_DIR = libft/
 NAME = push_swap
 
 $(NAME): lib
-	$(CC) $(STACK) $(NODE) $(MAIN_HELPER) $(SORT) -I/$(INCLUDE) $(LIBFT_DIR)libft.a push_swap.c -o push_swap 
+	$(CC) $(STACK) $(NODE) $(MAIN_HELPER) $(SORT) -I/$(INCLUDE) tests/helper.c $(LIBFT_DIR)libft.a push_swap.c -o push_swap 
 
 lib:
 	make re -C $(LIBFT_DIR)
