@@ -20,7 +20,7 @@ void	test_ft_atoi(void)
 	error = true;
 	int res = ps_atoi("10", &error);
 	if (error)
-	assert(res == 1);
+	assert(res == 10);
 }
 
 void	test_initialize_stack_a(int argc, char **argv)
