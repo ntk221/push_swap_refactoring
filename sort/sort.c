@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:29:41 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/05 18:03:12 by codespace        ###   ########.fr       */
+/*   Updated: 2023/01/06 04:40:59 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,15 @@ t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
 
 t_stack	*radix_sort(t_stack *a, t_stack *b)
 {
-	int	max_bits;
+	int		max_bits;
 	size_t	size;
 	size_t	i;
 	size_t	j;
 
 	max_bits = 0;
 	i = 0;
-	while (((a->size - 1) >> max_bits) != 0) max_bits++;
+	while (((a->size - 1) >> max_bits) != 0)
+		max_bits++;
 	size = a->size;
 	while (i++ < max_bits)
 	{
@@ -78,8 +79,6 @@ t_stack	*sort_3(t_stack *stack_a)
 	first = stack_a->head->val;
 	second = stack_a->head->next->val;
 	third = stack_a->head->next->next->val;
-	if (first < second && second < third && third > first)
-		return (stack_a);
 	if (first > second && second < third && third > first)
 		stack_a = sa(stack_a);
 	else if (first > second && second > third && third < first)
@@ -150,7 +149,7 @@ t_stack	*sort(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size == 2)
 		sa(stack_a);
-	else if (stack_a->size == 3)
+	else if (stack_a->size == 3 && !is_sorted(stack_a))
 		stack_a = sort_3(stack_a);
 	else if (stack_a->size == 5 || stack_a->size == 4)
 		stack_a = sort_5(stack_a, stack_b);
