@@ -36,6 +36,7 @@ int	*argv_to_array(int argc, char **argv)
 			write(2, "Error\n", 6);
 			exit(1);
 		}
+		i++;
 	}
 	return (data);
 }
@@ -69,8 +70,8 @@ int	*bubble_sort_arr(int *list, int len)
 				list[i] = list[i + 1];
 				list[i + 1] = tmp;
 				sorted = 0;
-				i++;
 			}
+			i++;
 		}
 		unsorted_until_index -= 1;
 	}
