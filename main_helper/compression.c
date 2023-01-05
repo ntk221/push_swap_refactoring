@@ -90,13 +90,10 @@ int	linear_search(int *ordered_array, int search_value)
 	return (-1);
 }
 
-// Usage : This function takes array of int and converts it to compressed one.
-// Note : now, I assume data was created by malloc
-int		*compression(int *data, int argc)
+int	*copy_data(int *data, int argc)
 {
-	int	*copy;
-	int	*res;
 	int	size;
+	int	*copy;
 
 	size = argc - 1;
 	copy = (int *)ft_calloc(size, sizeof(int));
@@ -107,6 +104,19 @@ int		*compression(int *data, int argc)
 	}
 	for(int i = 0; i < size; i++)
 		copy[i] = data[i];
+	return (copy);
+}
+
+// Usage : This function takes array of int and converts it to compressed one.
+// Note : now, I assume data was created by malloc
+int		*compression(int *data, int argc)
+{
+	int	*copy;
+	int	*res;
+	int	size;
+
+	size = argc - 1;
+	copy = copy_data(data, argc);
 	copy = bubble_sort_arr(copy, size);
 	res = (int *)ft_calloc(size, sizeof(int));
 	if (!res)

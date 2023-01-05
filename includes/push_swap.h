@@ -43,7 +43,6 @@ void			destroy_stack(t_stack *stack);
 void			print_stack(t_stack *stack);
 
 /* normal operations */
-
 t_stack			*swap(t_stack *stack);
 t_stack			*sa(t_stack *stack_a);
 t_stack			*sb(t_stack *stack_b);
@@ -60,7 +59,7 @@ t_stack			*pb(t_stack *stack_a, t_stack *stack_b);
 /* composite operations */
 
 /* sort functions */
-t_stack			*bubble_sort(t_stack *stack_a, t_stack *stack_b);
+// t_stack			*bubble_sort(t_stack *stack_a, t_stack *stack_b);
 t_stack			*radix_sort(t_stack *a, t_stack *b);
 t_stack			*sort_3(t_stack *stack_a);
 t_stack			*sort_4(t_stack *stack_a, t_stack *stack_b);
@@ -69,7 +68,7 @@ t_stack			*sort(t_stack *stack_a, t_stack *stack_b);
 
 /* sort utils */
 t_stack_node	*find_min_node(t_stack *stack_a, int *index);
-t_stack_node	*find_max_node(t_stack *stack_a);
+// t_stack_node	*find_max_node(t_stack *stack_a);
 
 /* util functions */
 static int		is_space(const char c);
@@ -83,6 +82,7 @@ bool			has_duplicate(char **src);
 int				*argv_to_array(int argc, char **argv);
 int				linear_search(int *ordered_array, int search);
 int				*bubble_sort_arr(int *list, int len);
+int				*copy_data(int *copy, int argc);
 int				*compression(int	*data, int argc);
 
 #endif
