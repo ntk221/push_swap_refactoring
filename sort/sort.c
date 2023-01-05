@@ -44,37 +44,27 @@ t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
 
 t_stack	*radix_sort(t_stack *a, t_stack *b)
 {
-	int	max_num;
 	int	max_bits;
 	size_t	size;
 	size_t	i;
 	size_t	j;
 
-	max_num = a->size - 1;
 	max_bits = 0;
 	i = 0;
-	j = 0;
-	while ((max_num >> max_bits) != 0) // 最大値の 2進数表現におけるビット数を数えている
-		max_bits++;
-	while (i < max_bits)
+	while (((a->size - 1) >> max_bits) != 0) max_bits++;
+	size = a->size;
+	while (i++ < max_bits)
 	{
 		j = 0;
-		// print_stack(a);
-		// printf("%ld\n", a->size);
-		size = a->size;
-		while (j < size)
+		while (j++ < size)
 		{
 			if ((a->head->val >> i) & 1 == 1)
 				a = ra(a);
 			else
 				b = pb(a, b);
-			j++;
-		//	printf("%d\n", j);
-		//	printf("%ld\n", a->size);
 		}
 		while (b->size != 0)
 			a = pa(a, b);
-		i++;
 	}
 	return (a);
 }

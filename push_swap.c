@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 	stack_b = create_stack();
 	if (!is_sorted(stack_a))
 		stack_a = sort(stack_a, stack_b);
-	// print_stack(stack_a);
+	print_stack(stack_a);
 	destroy_stack(stack_a);
 	destroy_stack(stack_b);
 }
