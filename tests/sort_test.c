@@ -34,7 +34,7 @@ t_stack *array_to_stack(char *arr, char delim)
     return stack;
 }
 
-void	test_bubble_sort(void)
+/*void	test_bubble_sort(void)
 {
 	t_stack *stack_a = create_stack();
 	t_stack *stack_b = create_stack();
@@ -80,7 +80,7 @@ void	test_bubble_sort(void)
   print_stack(stack_a);
   destroy_stack(stack_a);
   destroy_stack(stack_b);
-}
+}*/
 
 void  test_sort()
 {
@@ -174,13 +174,23 @@ void  test_sort_5(void)
   print_stack(stack_a);
 }
 
+void  test_radix_sort(void)
+{
+  char  *str = "1 2 3 4 5";
+  t_stack *stack_a = array_to_stack(str, ' ');
+  t_stack *stack_b = create_stack();
+  stack_a = radix_sort(stack_a, stack_b);
+  print_stack(stack_a);
+}
+
 int main(void)
 {
-	test_bubble_sort();
-  test_sort();
-  test_sort_5();
-  test_sort_3();
-  test_find_min_node();
+	// test_bubble_sort();
+  // test_sort();
+  // test_sort_5();
+  // test_sort_3();
+  // test_find_min_node();
+  test_radix_sort();
   // test_find_max_val();
 	return (0);
 }
