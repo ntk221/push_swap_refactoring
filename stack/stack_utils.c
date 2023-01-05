@@ -28,7 +28,7 @@ void	print_stack(t_stack *stack)
 	puts("--------------------");
 }
 
-t_stack	*initialize_stack_a(t_stack *stack_a, int argc, char **argv)
+/*t_stack	*initialize_stack_a(t_stack *stack_a, int argc, char **argv)
 {
 	int		i;
 	int		num;
@@ -44,6 +44,23 @@ t_stack	*initialize_stack_a(t_stack *stack_a, int argc, char **argv)
 		if (error)
 			exit(1);
 		res = push_back(stack_a, num);
+		if (!res)
+			exit(1);
+		i++;
+	}
+	return (stack_a);
+}*/
+
+t_stack		*initialize_stack_a(t_stack *stack_a, int	*data, int argc)
+{
+	int		i;
+	bool	res;
+
+	i = 0;
+	stack_a = create_stack();
+	while (i < argc - 1)
+	{
+		res = push_back(stack_a, data[i]);
 		if (!res)
 			exit(1);
 		i++;

@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		*data;
 	bool	error;
 
 	if (argc < 2)
@@ -26,8 +27,14 @@ int	main(int argc, char **argv)
 		fprintf(stderr, "Error\n");
 		exit(1);
 	}
-	error = true;
-	stack_a = initialize_stack_a(stack_a, argc, argv);
+	data = argv_to_array(argc, argv);
+	data = compression(data, argc);
+	// for (int i = 0; i < argc - 1; i++)
+	// printf("%d\n",data[i]);
+	// free(data);
+	stack_a = initialize_stack_a(stack_a, data, argc);
+	free(data);
+	print_stack(stack_a);
 	stack_b = create_stack();
 	if (!is_sorted(stack_a))
 		stack_a = sort(stack_a, stack_b);

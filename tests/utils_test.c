@@ -18,7 +18,7 @@ void	test_ft_atoi(void)
 	bool error;
 
 	error = true;
-	int res = ft_atoi("10", &error);
+	int res = ps_atoi("10", &error);
 	if (error)
 	assert(res == 1);
 }
@@ -33,6 +33,6 @@ void	test_initialize_stack_a(int argc, char **argv)
 
 int main(int argc, char **argv)
 {
-	// test_ft_atoi();
-	test_initialize_stack_a(argc, argv);
+	test_ft_atoi();
+	// test_initialize_stack_a(argc, argv);
 }
