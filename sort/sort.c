@@ -93,7 +93,7 @@ t_stack	*sort_3(t_stack *stack_a)
 		stack_a = sa(stack_a);
 		stack_a = ra(stack_a);
 	}
-	else
+	else if (first < second && second > third && third < first)
 		stack_a = rra(stack_a);
 	return (stack_a);
 }
@@ -149,7 +149,7 @@ t_stack	*sort(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size == 2)
 		sa(stack_a);
-	else if (stack_a->size == 3 && !is_sorted(stack_a))
+	else if (stack_a->size == 3)
 		stack_a = sort_3(stack_a);
 	else if (stack_a->size == 5 || stack_a->size == 4)
 		stack_a = sort_5(stack_a, stack_b);
