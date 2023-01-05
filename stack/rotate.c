@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 08:49:38 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/06 05:03:22 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/06 08:01:04 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ t_stack	*rotate(t_stack *stack)
 	free(data);
 	if (!res)
 		return (NULL);
-	else
-		return (stack);
+	return (stack);
 }
 
 t_stack	*ra(t_stack *stack_a)
@@ -36,8 +35,8 @@ t_stack	*ra(t_stack *stack_a)
 	result = rotate(stack_a);
 	if (!result)
 		return (result);
-	if (write(1, "ra\n", 3))
-		return (result);
+	write(1, "ra\n", 3);
+	return (result);
 }
 
 t_stack	*rb(t_stack *stack_b)
@@ -47,6 +46,6 @@ t_stack	*rb(t_stack *stack_b)
 	result = rotate(stack_b);
 	if (!result)
 		return (result);
-	if (write(1, "rb\n", 3))
-		return (result);
+	write(1, "rb\n", 3);
+	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 03:51:53 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/04 03:57:46 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/06 07:54:52 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ t_stack_node	*find_min_node(t_stack *stack_a, int *index);
 static int		is_space(const char c);
 static bool		is_digits(const char c);
 int				ps_atoi(const char *str, bool *error);
+int				atoi_loop(const char *str, int num, int sign);
 bool			check_argv(int argc, char **argv);
 void			error_message(void);
 t_stack			*initialize_stack_a(t_stack *stack_a, int *data, int argc);

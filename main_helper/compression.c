@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   compression.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 03:48:24 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/05 17:22:59 by codespace        ###   ########.fr       */
+/*   Updated: 2023/01/06 07:44:55 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 // Usage : This function converts char ** type data to int * type data
 //          officially this function is used for convert argv to one array.
-int		*argv_to_array(int argc, char **argv)
+int	*argv_to_array(int argc, char **argv)
 {
 	int		*data;
 	int		size;
 	bool	error;
-	
+	int		i;
+
 	size = argc;
 	data = (int *)ft_calloc(size, sizeof(int));
 	if (!data)
 		error_message();
-	for(int i = 1; i < size; i++)
+	i = 1;
+	while (i < argc)
 	{
 		error = true;
 		data[i - 1] = ps_atoi(argv[i], &error);
@@ -48,11 +50,12 @@ int main(int argc, char **argv)
 
 int	*bubble_sort_arr(int *list, int len)
 {
-	int		unsorted_until_index = len - 1;
+	int		unsorted_until_index;
 	bool	sorted;
 	int		tmp;
 	int		i;
 
+	unsorted_until_index = len - 1;
 	sorted = false;
 	while (!sorted)
 	{
@@ -66,8 +69,8 @@ int	*bubble_sort_arr(int *list, int len)
 				list[i] = list[i + 1];
 				list[i + 1] = tmp;
 				sorted = 0;
+				i++;
 			}
-			i++;
 		}
 		unsorted_until_index -= 1;
 	}
@@ -94,26 +97,32 @@ int	*copy_data(int *data, int argc)
 {
 	int	size;
 	int	*copy;
+	int	i;
 
 	size = argc - 1;
 	copy = (int *)ft_calloc(size, sizeof(int));
 	if (!copy)
 	{
 		free(data);
-		error_message();	
+		error_message();
 	}
-	for(int i = 0; i < size; i++)
+	i = 0;
+	while (i < size)
+	{
 		copy[i] = data[i];
+		i++;
+	}
 	return (copy);
 }
 
 // Usage : This function takes array of int and converts it to compressed one.
 // Note : now, I assume data was created by malloc
-int		*compression(int *data, int argc)
+int	*compression(int *data, int argc)
 {
 	int	*copy;
 	int	*res;
 	int	size;
+	int	i;
 
 	size = argc - 1;
 	copy = copy_data(data, argc);
@@ -125,8 +134,12 @@ int		*compression(int *data, int argc)
 		free(copy);
 		error_message();
 	}
-	for (int i = 0; i < size; i++)
+	i = 0;
+	while (i < size)
+	{
 		res[i] = linear_search(copy, data[i]);
+		i++;
+	}
 	free(copy);
 	free(data);
 	return (res);

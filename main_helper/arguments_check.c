@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_utils.c                                       :+:      :+:    :+:   */
+/*   arguments_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 09:35:12 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/04 03:05:48 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/06 07:55:03 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,23 @@ static int	is_space(const char c)
 	if ((c >= 9 && c <= 13) || c == 32)
 		return (1);
 	return (0);
+}
+
+int	atoi_loop(const char *str, int num, int sign)
+{
+	int	prev;
+
+	while (*str >= '0' && *str <= '9')
+	{
+		prev = num;
+		num = num * 10 + sign * (*str - '0');
+		if (num > prev && sign == -1)
+			return (0);
+		if (num < prev && sign == 1)
+			return (-1);
+		str++;
+	}
+	return (num);
 }
 
 int	ps_atoi(const char *str, bool *error)
@@ -38,15 +55,7 @@ int	ps_atoi(const char *str, bool *error)
 		str++;
 	if (!((*str >= '0' && *str <= '9')))
 		error_message();
-	while (*str >= '0' && *str <= '9')
-	{
-		prev = num;
-		num = num * 10 + sign * (*str++ - '0');
-		if (num > prev && sign == -1)
-			return (0);
-		if (num < prev && sign == 1)
-			return (-1);
-	}
+	num = atoi_loop(str, num, sign);
 	*error = false;
 	return (num);
 }

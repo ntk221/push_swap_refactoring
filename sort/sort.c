@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:29:41 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/06 04:40:59 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/06 08:01:40 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_stack	*radix_sort(t_stack *a, t_stack *b)
 		j = 0;
 		while (j++ < size)
 		{
-			if ((a->head->val >> i) & 1 == true)
+			if (((a->head->val >> i) & 1) == true)
 				a = ra(a);
 			else
 				b = pb(a, b);
