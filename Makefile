@@ -2,7 +2,7 @@ CC	   = gcc
 
 STACK = ./stack/*.c
 SORT  = ./sort/*.c
-UTILS = ./utils/*.c 
+MAIN_HELPER = ./main_helper/*.c 
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -18,10 +18,10 @@ LIBFT_DIR = libft/
 NAME = push_swap
 
 $(NAME): lib
-	$(CC) $(STACK) $(NODE) $(UTILS) $(SORT) -I/$(INCLUDE) $(LIBFT_DIR)libft.a push_swap.c -o push_swap 
+	$(CC) $(STACK) $(NODE) $(MAIN_HELPER) $(SORT) -I/$(INCLUDE) $(LIBFT_DIR)libft.a push_swap.c -o push_swap 
 
 lib:
-	make -C $(LIBFT_DIR)
+	make re -C $(LIBFT_DIR)
 
 .PHONY:
 fclean:

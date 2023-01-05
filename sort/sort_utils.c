@@ -39,21 +39,3 @@ t_stack_node	*find_min_node(t_stack *stack_a, int *index)
 	return (min);
 }
 
-t_stack_node	*find_max_node(t_stack *stack_a)
-{
-	t_stack_node	*max;
-	int				size;
-	t_stack_node	*itr;
-
-	itr = stack_a->head;
-	max = itr;
-	size = stack_a->size;
-	while (size)
-	{
-		if (max->val < itr->val)
-		max = itr;
-		itr = itr->next;
-		size--;
-	}
-	return (max);
-}

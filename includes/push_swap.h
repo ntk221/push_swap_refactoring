@@ -75,8 +75,12 @@ static int		is_space(const char c);
 static bool		is_digits(const char c);
 int				ps_atoi(const char *str, bool *error);
 bool			check_argv(int argc, char **argv);
-t_stack			*initialize_stack_a(t_stack *stack_a, int argc, char **argv);
+t_stack			*initialize_stack_a(t_stack *stack_a, int *data, int argc);
 bool			is_sorted(t_stack *stack);
 bool			has_duplicate(char **src);
+int				*argv_to_array(int argc, char **argv);
+int				linear_search(int *ordered_array, int search);
+int				*bubble_sort_arr(int *list, int len);
+int				*compression(int	*data, int argc);
 
 #endif
