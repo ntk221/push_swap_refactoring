@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:46:07 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/17 13:35:52 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/05 18:08:38 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,11 +176,17 @@ void  test_sort_5(void)
 
 void  test_radix_sort(void)
 {
-  char  *str = "1 2 3 4 5";
-  t_stack *stack_a = array_to_stack(str, ' ');
-  t_stack *stack_b = create_stack();
-  stack_a = radix_sort(stack_a, stack_b);
-  print_stack(stack_a);
+  t_stack *a = create_stack();
+  t_stack *b = create_stack();
+  push_back(a, 0b100);
+  push_back(a, 0b000);
+  push_back(a, 0b110);
+  push_back(a, 0b001);
+  push_back(a, 0b101);
+  push_back(a, 0b010);
+  push_back(a, 0b011);
+  a = radix_sort(a, b);
+  print_stack(a);
 }
 
 int main(void)

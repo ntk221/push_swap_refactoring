@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:29:41 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/04 03:37:42 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/05 18:03:12 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-/*t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
+t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int		num_of_comparison;
 	int		i;
@@ -40,34 +40,43 @@
 	while (stack_b->size)
 		stack_a = pa(stack_a, stack_b);
 	return (stack_a);
-}*/
+}
 
 t_stack	*radix_sort(t_stack *a, t_stack *b)
 {
 	int	max_num;
 	int	max_bits;
-	int	val;
-	int	i;
-	int	j;
+	size_t	size;
+	size_t	i;
+	size_t	j;
 
 	max_num = a->size - 1;
 	max_bits = 0;
-	while ((max_num >> max_bits) != 0)
+	i = 0;
+	j = 0;
+	while ((max_num >> max_bits) != 0) // 最大値の 2進数表現におけるビット数を数えている
 		max_bits++;
 	while (i < max_bits)
 	{
-		val = a->head->val;
-		if ((val >> i) & 1 == 1)
-			a = ra(a);
-		else
-			b = pb(a, b);
+		j = 0;
+		// print_stack(a);
+		// printf("%ld\n", a->size);
+		size = a->size;
+		while (j < size)
+		{
+			if ((a->head->val >> i) & 1 == 1)
+				a = ra(a);
+			else
+				b = pb(a, b);
+			j++;
+		//	printf("%d\n", j);
+		//	printf("%ld\n", a->size);
+		}
+		while (b->size != 0)
+			a = pa(a, b);
 		i++;
 	}
-	while (b->size != 0)
-	{
-		a = pa(a, b);
-	}
-	return (a);	
+	return (a);
 }
 
 t_stack	*sort_3(t_stack *stack_a)
@@ -79,6 +88,8 @@ t_stack	*sort_3(t_stack *stack_a)
 	first = stack_a->head->val;
 	second = stack_a->head->next->val;
 	third = stack_a->head->next->next->val;
+	if (first < second && second < third && third > first)
+		return (stack_a);
 	if (first > second && second < third && third > first)
 		stack_a = sa(stack_a);
 	else if (first > second && second > third && third < first)

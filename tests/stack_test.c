@@ -204,8 +204,22 @@ void	test_push(void)
 	t_stack *stack_b = create_stack();
 	push_back(stack_b, 3);
 	push_back(stack_b, 4);
+	printf("before pb a->size is ... %ld\n", stack_a->size);
 	stack_b = pb(stack_a, stack_b);
+	printf("after pb a->size is ... %ld\n" , stack_a->size);
 	assert(1 == stack_b->head->val);	
+	destroy_stack(src);
+	destroy_stack(dst);
+
+	stack_a = create_stack();
+	push_back(stack_a, 1);
+	push_back(stack_a, 2);
+	stack_b = create_stack();
+	push_back(stack_b, 3);
+	push_back(stack_b, 4);
+	printf("before pb b->size is ... %ld\n", stack_b->size);
+	stack_a = pa(stack_a, stack_b);
+	printf("after pb b->size is ... %ld\n" , stack_b->size);
 }
 
 void	test_print_stack(void)
@@ -257,7 +271,7 @@ int main(int argc, char **argv)
 	test_reverse_rotate();
 	test_push();
 	test_print_stack();
-  test_is_sorted();
+  	test_is_sorted();
   
   // test_pb_selected_node();
 }

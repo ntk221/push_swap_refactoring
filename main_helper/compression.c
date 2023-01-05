@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_utils_2.c                                     :+:      :+:    :+:   */
+/*   compression.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 03:48:24 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/04 03:50:58 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/05 17:22:59 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ int		*argv_to_array(int argc, char **argv)
 		data[i - 1] = ft_atoi(argv[i]);
 	return (data);
 }
+
+/*#include <stdio.h>
+int main(int argc, char **argv)
+{
+	int		*data;
+	data = argv_to_array(argc, argv);
+	printf("%d\n", *data);
+}*/
 
 int	*bubble_sort_arr(int *list, int len)
 {

@@ -3,15 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:51:43 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/04 03:25:48 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/05 18:11:33 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
+
+void printb(unsigned int v) {
+  unsigned int mask = (int)1 << (sizeof(v) * CHAR_BIT - 1);
+  do putchar(mask & v ? '1' : '0');
+  while (mask >>= 1);
+}
 
 void	print_stack(t_stack *stack)
 {
@@ -21,7 +27,9 @@ void	print_stack(t_stack *stack)
 	puts("--------------------");
 	while(size)
 	{
-		printf("%d\n", stack->head->val);
+		printb(stack->head->val);
+		//printf("%d", stack->head->val);
+		puts("");
 		rotate(stack);
 		size--;
 	}
