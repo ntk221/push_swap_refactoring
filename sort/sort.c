@@ -6,14 +6,14 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:29:41 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/06 08:01:40 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/06 08:16:18 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
+/*t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int		num_of_comparison;
 	int		i;
@@ -40,7 +40,7 @@ t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
 	while (stack_b->size)
 		stack_a = pa(stack_a, stack_b);
 	return (stack_a);
-}
+}*/
 
 t_stack	*radix_sort(t_stack *a, t_stack *b)
 {

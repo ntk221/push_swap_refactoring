@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:53:51 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/05 16:57:45 by codespace        ###   ########.fr       */
+/*   Updated: 2023/01/06 08:15:32 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,11 @@ int	main(int argc, char **argv)
 		error_message();
 	data = argv_to_array(argc, argv);
 	data = compression(data, argc);
-	// for (int i = 0; i < argc - 1; i++)
-	//	printf("%d\n",data[i]);
-	// free(data);
 	stack_a = initialize_stack_a(stack_a, data, argc);
 	free(data);
-	// print_stack(stack_a);
 	stack_b = create_stack();
 	if (!is_sorted(stack_a))
 		stack_a = sort(stack_a, stack_b);
-	/// print_stack(stack_a);
 	destroy_stack(stack_a);
 	destroy_stack(stack_b);
 }
