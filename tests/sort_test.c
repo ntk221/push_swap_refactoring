@@ -14,8 +14,8 @@
 #include <stdio.h>
 #include <assert.h>
 
-t_stack *array_to_stack(char *arr, char delim)
-{
+t_stack *array_to_stack(char *arr, char delim);
+/*{
     int     val;
     t_stack *stack = create_stack();
     while(*arr != '\0')
@@ -32,7 +32,7 @@ t_stack *array_to_stack(char *arr, char delim)
         arr++;
     }
     return stack;
-}
+}*/
 
 /*void	test_bubble_sort(void)
 {
@@ -192,10 +192,10 @@ void  test_radix_sort(void)
 int main(void)
 {
 	// test_bubble_sort();
-  // test_sort();
-  // test_sort_5();
-  // test_sort_3();
-  // test_find_min_node();
+  test_sort();
+  test_sort_5();
+  test_sort_3();
+  test_find_min_node();
   test_radix_sort();
   // test_find_max_val();
 	return (0);

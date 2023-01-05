@@ -3,6 +3,7 @@
 */
 #include <assert.h>
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 t_stack *array_to_stack(char *arr, char delim)
 {
@@ -60,8 +61,8 @@ void    test_array_to_stack(void)
     assert(stack->head->next->next->next->next->val == 5);
 }
 
-int main(void)
+/*int main(void)
 {
     test_array_to_stack();
     return 0;
-}
+}*/

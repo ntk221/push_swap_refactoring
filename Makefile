@@ -2,7 +2,8 @@ CC	   = gcc
 
 STACK = ./stack/*.c
 SORT  = ./sort/*.c
-MAIN_HELPER = ./main_helper/*.c 
+MAIN_HELPER = ./main_helper/*.c
+
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -28,11 +29,11 @@ fclean:
 	rm push_swap
 
 stack_test:	$(STACK_TESTS) lib
-	$(CC) $(STACK_TESTS) $(STACK) $(MAIN_HELPER) $(LIBFT_DIR)libft.a -o stack_test
+	$(CC) $(STACK_TESTS) $(STACK) $(MAIN_HELPER) tests/helper.c $(LIBFT_DIR)libft.a -o stack_test
 	./stack_test	
 	rm stack_test
 
 sort_test:	$(SORT_TESTS) lib
-	$(CC) $(SORT_TESTS) $(SORT) $(STACK) $(MAIN_HELPER) $(LIBFT_DIR)libft.a -o sort_test
+	$(CC) $(SORT_TESTS) $(SORT) $(STACK) $(MAIN_HELPER) tests/helper.c $(LIBFT_DIR)libft.a -o sort_test
 	./sort_test
 	rm sort_test
