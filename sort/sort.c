@@ -13,7 +13,7 @@
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
+/*t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int		num_of_comparison;
 	int		i;
@@ -40,6 +40,34 @@ t_stack	*bubble_sort(t_stack *stack_a, t_stack *stack_b)
 	while (stack_b->size)
 		stack_a = pa(stack_a, stack_b);
 	return (stack_a);
+}*/
+
+t_stack	*radix_sort(t_stack *a, t_stack *b)
+{
+	int	max_num;
+	int	max_bits;
+	int	val;
+	int	i;
+	int	j;
+
+	max_num = a->size - 1;
+	max_bits = 0;
+	while ((max_num >> max_bits) != 0)
+		max_bits++;
+	while (i < max_bits)
+	{
+		val = a->head->val;
+		if ((val >> i) & 1 == 1)
+			a = ra(a);
+		else
+			b = pb(a, b);
+		i++;
+	}
+	while (b->size != 0)
+	{
+		a = pa(a, b);
+	}
+	return (a);	
 }
 
 t_stack	*sort_3(t_stack *stack_a)
@@ -126,6 +154,6 @@ t_stack	*sort(t_stack *stack_a, t_stack *stack_b)
 	else if (stack_a->size == 5 || stack_a->size == 4)
 		stack_a = sort_5(stack_a, stack_b);
 	else
-		stack_a = bubble_sort(stack_a, stack_b);
+		stack_a = radix_sort(stack_a, stack_b);
 	return (stack_a);
 }
