@@ -18,13 +18,15 @@ LIBFT_DIR = libft/
 
 NAME = push_swap
 
-$(NAME): lib
-	$(CC) $(STACK) $(NODE) $(MAIN_HELPER) $(SORT) -I/$(INCLUDE) tests/helper.c $(LIBFT_DIR)libft.a push_swap.c -o push_swap 
+LIBFTA = libft/libft.a
 
-lib:
-	make re -C $(LIBFT_DIR)
+$(NAME): $(LIBFTA)
+	$(CC) $(STACK) $(NODE) $(MAIN_HELPER) $(SORT) -I/$(INCLUDE) tests/helper.c $(LIBFTA) push_swap.c -o push_swap 
 
-.PHONY:
+$(LIBFTA):
+	make -C $(LIBFT_DIR)
+
+PHONY:
 fclean:
 	rm push_swap
 

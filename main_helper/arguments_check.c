@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arguments_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 09:35:12 by kazuki            #+#    #+#             */
-/*   Updated: 2023/01/06 07:55:03 by kazuki           ###   ########.fr       */
+/*   Updated: 2023/01/07 04:58:07 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	is_space(const char c)
 	return (0);
 }
 
-int	atoi_loop(const char *str, int num, int sign)
+int	atoi_loop(const char *str, int num, int sign, bool *error)
 {
 	int	prev;
 
@@ -28,9 +28,15 @@ int	atoi_loop(const char *str, int num, int sign)
 		prev = num;
 		num = num * 10 + sign * (*str - '0');
 		if (num > prev && sign == -1)
+		{
+			*error = true;
 			return (0);
+		}
 		if (num < prev && sign == 1)
+		{
+			*error = true;
 			return (-1);
+		}
 		str++;
 	}
 	return (num);
@@ -55,7 +61,7 @@ int	ps_atoi(const char *str, bool *error)
 		str++;
 	if (!((*str >= '0' && *str <= '9')))
 		error_message();
-	num = atoi_loop(str, num, sign);
+	num = atoi_loop(str, num, sign, error);
 	*error = false;
 	return (num);
 }
