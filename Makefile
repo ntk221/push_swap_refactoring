@@ -1,4 +1,4 @@
-CC	   = clang
+CC	   = cc
 
 STACK = ./stack/*.c
 SORT  = ./sort/*.c
@@ -20,7 +20,7 @@ LIBFTDIR = ./libft
 LIBFT = ./libft/libft.a
 
 $(NAME): $(LIBFT)
-	$(CC) $(STACK) $(NODE) $(MAIN_HELPER) $(SORT) -I(INCLUDE) tests/helper.c push_swap.c -o push_swap 
+	$(CC) $(STACK) $(NODE) $(MAIN_HELPER) $(SORT) -L$(LIBFTDIR) -I$(INCLUDE) tests/helper.c push_swap.c -o push_swap -lft
 
 $(LIBFT):
 	make -C $(LIBFTDIR)
