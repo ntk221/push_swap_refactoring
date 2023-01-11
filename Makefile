@@ -16,11 +16,11 @@ INCLUDE		 = includes/
 
 NAME = push_swap
 
-LIBFTDIR = libft
+LIBFTDIR = ./libft
 LIBFT = libft/libft.a
 
 $(NAME): $(LIBFT)
-	$(CC) $(STACK) $(NODE) $(MAIN_HELPER) $(SORT) -I/$(INCLUDE) tests/helper.c push_swap.c -o push_swap $(LIBFT) 
+	$(CC) $(STACK) $(NODE) $(MAIN_HELPER) $(SORT) -I/$(INCLUDE) tests/helper.c push_swap.c -o push_swap 
 
 $(LIBFT):
 	make -C $(LIBFTDIR)
@@ -36,11 +36,11 @@ re: fclean $(NAME)
 all: $(NAME)
 
 stack_test:	$(STACK_TESTS) $(LIBFT)
-	$(CC) $(STACK_TESTS) $(STACK) $(MAIN_HELPER) -I/$(INCLUDE) tests/helper.c -o stack_test $(LIBFT) 
+	$(CC) $(STACK_TESTS) $(STACK) $(MAIN_HELPER) -L$(LIBFTDIR) -I/$(INCLUDE) tests/helper.c -o stack_test -lft
 	./stack_test	
 	rm stack_test
 
 sort_test:	$(SORT_TESTS) $(LIBFT)
-	$(CC) $(SORT_TESTS) $(SORT) $(STACK) $(MAIN_HELPER) -I/$(INCLUDE) tests/helper.c -o sort_test $(LIBFT)
+	$(CC) $(SORT_TESTS) $(SORT) $(STACK) $(MAIN_HELPER) -L$(LIBFTDIR) -I/$(INCLUDE) tests/helper.c -o sort_test -lft
 	./sort_test
 	rm sort_test
