@@ -12,7 +12,7 @@ CFLAGS = -Wall -Werror -Wextra
 STACK_TESTS  = ./tests/stack_test.c
 SORT_TESTS   = ./tests/sort_test.c
 
-INCLUDE		 = includes/
+INCLUDE		 = ./includes/
 
 NAME = push_swap
 
@@ -36,11 +36,11 @@ re: fclean $(NAME)
 all: $(NAME)
 
 stack_test:	$(STACK_TESTS) $(LIBFT)
-	$(CC) $(STACK_TESTS) $(STACK) $(MAIN_HELPER) -L$(LIBFTDIR) -I/$(INCLUDE) tests/helper.c -o stack_test -lft
+	$(CC) $(STACK_TESTS) $(STACK) $(MAIN_HELPER) -L$(LIBFTDIR) -I$(INCLUDE) tests/helper.c -o stack_test -lft
 	./stack_test	
 	rm stack_test
 
 sort_test:	$(SORT_TESTS) $(LIBFT)
-	$(CC) $(SORT_TESTS) $(SORT) $(STACK) $(MAIN_HELPER) -L$(LIBFTDIR) -I/$(INCLUDE) tests/helper.c -lft -o sort_test 
+	$(CC) $(SORT_TESTS) $(SORT) $(STACK) $(MAIN_HELPER) -L$(LIBFTDIR) -I/$(INCLUDE) tests/helper.c -o sort_test -lft
 	./sort_test
 	rm sort_test
