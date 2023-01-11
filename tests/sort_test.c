@@ -153,7 +153,7 @@ void  test_find_min_node(void)
   push_back(stack_a, 4);
   push_back(stack_a, 1);
   // print_stack(stack_a);
-  int  index = 0;
+  size_t  index = 0;
   t_stack_node *res = find_min_node(stack_a, &index);
   // printf("%d\n", res->val);
   // t_stack_node  *itr = res;

@@ -101,7 +101,7 @@ t_stack	*sort_3(t_stack *stack_a)
 
 t_stack	*sort_5(t_stack *stack_a, t_stack *stack_b)
 {
-	int				id;
+	size_t			id;
 	t_stack_node	*min;
 	bool			flag;
 
@@ -128,7 +128,7 @@ t_stack	*sort_5(t_stack *stack_a, t_stack *stack_b)
 
 t_stack	*sort_4(t_stack *stack_a, t_stack *stack_b)
 {
-	int				id;
+	size_t			id;
 	t_stack_node	*min;
 
 	id = 0;

@@ -67,12 +67,12 @@ t_stack			*sort_5(t_stack *stack_a, t_stack *stack_b);
 t_stack			*sort(t_stack *stack_a, t_stack *stack_b);
 
 /* sort utils */
-t_stack_node	*find_min_node(t_stack *stack_a, int *index);
+t_stack_node	*find_min_node(t_stack *stack_a, size_t *index);
 // t_stack_node	*find_max_node(t_stack *stack_a);
 
 /* util functions */
-static int		is_space(const char c);
-static bool		is_digits(const char c);
+// static int		is_space(const char c);
+// static bool		is_digits(const char c);
 int				ps_atoi(const char *str, bool *error);
 int				atoi_loop(const char *str, int num, int sign, bool *error);
 bool			check_argv(int argc, char **argv);
