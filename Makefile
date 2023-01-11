@@ -41,6 +41,6 @@ stack_test:	$(STACK_TESTS) $(LIBFT)
 	rm stack_test
 
 sort_test:	$(SORT_TESTS) $(LIBFT)
-	$(CC) $(SORT_TESTS) $(SORT) $(STACK) $(MAIN_HELPER) -L$(LIBFTDIR) -I(INCLUDE) tests/helper.c -o sort_test -lft
+	$(CC) $(SORT_TESTS) $(SORT) $(STACK) $(MAIN_HELPER) -L$(LIBFTDIR) -I$(INCLUDE) tests/helper.c -o sort_test -lft
 	./sort_test
 	rm sort_test
