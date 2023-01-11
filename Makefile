@@ -1,4 +1,4 @@
-CC	   = cc
+CC	   = gcc
 
 STACK = ./stack/*.c
 SORT  = ./sort/*.c
