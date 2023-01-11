@@ -1,4 +1,5 @@
 #include "../includes/push_swap.h"
+#include <libft.h>
 #include <assert.h>
 #include <stdio.h>
 #include <limits.h>

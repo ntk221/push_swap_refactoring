@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <libft.h>
 #include <stdio.h>
 #include <assert.h>
 
