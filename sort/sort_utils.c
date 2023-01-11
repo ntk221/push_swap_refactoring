@@ -13,7 +13,7 @@
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-t_stack_node	*find_min_node(t_stack *stack_a, int *index)
+t_stack_node	*find_min_node(t_stack *stack_a, size_t *index)
 {
 	t_stack_node	*min;
 	int				size;

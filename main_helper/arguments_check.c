@@ -46,7 +46,6 @@ int	ps_atoi(const char *str, bool *error)
 {
 	int	sign;
 	int	num;
-	int	prev;
 
 	sign = 1;
 	num = 0;
