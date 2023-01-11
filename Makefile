@@ -17,10 +17,10 @@ INCLUDE		 = ./includes/
 NAME = push_swap
 
 LIBFTDIR = ./libft
-LIBFT = libft/libft.a
+LIBFT = ./libft/libft.a
 
 $(NAME): $(LIBFT)
-	$(CC) $(STACK) $(NODE) $(MAIN_HELPER) $(SORT) -I/$(INCLUDE) tests/helper.c push_swap.c -o push_swap 
+	$(CC) $(STACK) $(NODE) $(MAIN_HELPER) $(SORT) -I(INCLUDE) tests/helper.c push_swap.c -o push_swap 
 
 $(LIBFT):
 	make -C $(LIBFTDIR)
@@ -41,6 +41,6 @@ stack_test:	$(STACK_TESTS) $(LIBFT)
 	rm stack_test
 
 sort_test:	$(SORT_TESTS) $(LIBFT)
-	$(CC) $(SORT_TESTS) $(SORT) $(STACK) $(MAIN_HELPER) -L$(LIBFTDIR) -I/$(INCLUDE) tests/helper.c -o sort_test -lft
+	$(CC) $(SORT_TESTS) $(SORT) $(STACK) $(MAIN_HELPER) -L$(LIBFTDIR) -I(INCLUDE) tests/helper.c -o sort_test -lft
 	./sort_test
 	rm sort_test
